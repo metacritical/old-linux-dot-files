@@ -1,0 +1,9 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =7
+let g:netrw_dirhist_1='/home/pankaj'
+let g:netrw_dirhist_2='/home/pankaj/Development'
+let g:netrw_dirhist_3='/home/pankaj/Development/iKonverse'
+let g:netrw_dirhist_4='/home/pankaj/Development/iKonverse/app'
+let g:netrw_dirhist_5='/home/pankaj/Development/iKonverse/app/assets'
+let g:netrw_dirhist_6='/home/pankaj/Development/iKonverse/app'
+let g:netrw_dirhist_7='/home/pankaj/Development/iKonverse/app/controllers'
