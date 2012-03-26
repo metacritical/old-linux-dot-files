@@ -56,12 +56,12 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/home/pankaj/"
+ "/home/pankaj/Development/m3_tenant_dev/app/models/"
  "/home/pankaj/Development/Mudmonk/controller/"
  "/home/pankaj/Development/Mudmonk/"
  "/home/pankaj/Development/m3_tenant_dev/app/controllers/"
- "/home/pankaj/"
  "/etc/apt/"
- "/home/pankaj/Development/m3_tenant_dev/app/models/"
  "/etc/"
  "/home/pankaj/Development/m3_tenant_dev/config/environments/"
  "/home/pankaj/Development/m3_tenant_dev/config/"
@@ -110,25 +110,27 @@
 
 ;; ----- ido-work-file-list -----
 (
+ ".gitignore"
+ "audit_trail.rb"
  "keyb_handler.rb"
  "mudmonk.rb"
- "mudserve.rb"
- "scrn_handler.rb"
- "syntax_parser.rb"
- "README.md"
- "dashboard_controller.rb"
- ".bash_profile"
- "sources.list"
+ "data_entry_controller.rb"
  "categories_controller.rb"
+ ".emacs"
+ "dashboard_controller.rb"
+ "user.rb"
+ "mudserve.rb"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/home/pankaj/Development/Mudmonk/controller/" (20332 11697) "./" "syntax_parser.rb" "mudserve.rb" "syntax_parser.rb~" "keyb_handler.rb" "../" "scrn_handler.rb")
+ ("/home/pankaj/" (20336 29561) ".todo" ".bash_history" ".config/" "./" ".rbx/" "apt.conf" ".gitignore" "echo" ".drirc" "Desktop/" ".irb-history" ".libreoffice/" "Ubuntu One/" "Pictures/" "o-rdoc/" ".pulse-cookie" "srcpkgcache.bin" ".bash_profile" "examples.desktop" ".local/" ".mysql_history" ".cache/" ".gitconfig" ".dmrc" ".bash_profile~" "pkgcache.bin" "sources.list.destdir" ".fonts.conf" ".ssh/" ".profile~" "Softwares/" "skype-call-recorder/" ".sqlite_history" "Mail/" ".bashrc" ".emacs" ".gitignore~" "Packages.gz" ".mozilla/" ".profile" ".adobe/" ".gnome2_private/" "Install RVM and rails on Ubuntu 11.10.pdf" ".gem/" "filelist.apt" "README.md~" "Videos/" "README.md" "Documents/" ".macromedia/" ".gnome2/" "Public/" ".fonts/" ".fontconfig/" "Downloads/" ".sudo_as_admin_successful" "pkgcache.apt" ".vim/" "../" "Music/" ".emacs.d/" ".vnc/" "lists.apt/" ".ICEauthority" ".gconf/" ".emacs~" "Packages" ".goutputstream-SA26AW" "Development/" ".Skype/" ".gstreamer-0.10/" ".mission-control/" ".git/" ".thunderbird/" ".zshrc" ".zlogin" "key_bash" ".ido.last~" ".gemrc" ".icedtea/" "sources.list" ".purple/" ".gvfs/" ".Xauthority" ".viper~" ".vip" ".viper" ".thumbnails/" ".bashrc~" ".subversion/" ".dbus/" ".bash_login" ".gtk-bookmarks" ".zcompdump" ".compiz-1/" "pgadmin.log" ".xsession-errors" ".ido.last" ".esd_auth" ".bash_logout" "Templates/" ".pulse/" ".viminfo")
 
- ("/home/pankaj/" (20332 11863) ".todo" ".bash_history" ".config/" "./" ".rbx/" "apt.conf" ".gitignore" "echo" ".drirc" "Desktop/" ".irb-history" ".libreoffice/" "Ubuntu One/" "Pictures/" "o-rdoc/" ".pulse-cookie" "srcpkgcache.bin" ".bash_profile" "examples.desktop" ".local/" ".mysql_history" ".cache/" ".gitconfig" ".dmrc" ".bash_profile~" "pkgcache.bin" "sources.list.destdir" ".fonts.conf" ".ssh/" ".profile~" "Softwares/" "skype-call-recorder/" ".sqlite_history" "Mail/" ".bashrc" ".emacs" ".gitignore~" "Packages.gz" ".mozilla/" ".profile" ".adobe/" ".pgpass" ".gnome2_private/" "Install RVM and rails on Ubuntu 11.10.pdf" ".gem/" "filelist.apt" "ass_profile" "README.md~" ".pgadmin3" "Videos/" "README.md" "Documents/" ".macromedia/" ".gnome2/" "Public/" ".fonts/" ".psql_history" ".fontconfig/" "Downloads/" ".sudo_as_admin_successful" "pkgcache.apt" ".vim/" "../" "Music/" ".emacs.d/" ".vnc/" "lists.apt/" ".ICEauthority" ".gconf/" ".emacs~" "Packages" ".goutputstream-SA26AW" "Development/" ".Skype/" ".gstreamer-0.10/" ".mission-control/" ".git/" ".thunderbird/" ".zshrc" ".zlogin" ".ido.last~" ".gemrc" ".icedtea/" "sources.list" ".purple/" ".gvfs/" ".Xauthority" ".viper~" ".vip" ".viper" ".thumbnails/" ".bashrc~" ".subversion/" ".dbus/" ".bash_login" ".gtk-bookmarks" ".zcompdump" ".compiz-1/" "pgadmin.log" ".xsession-errors" ".ido.last" ".esd_auth" ".bash_logout" "Templates/" ".pulse/" ".viminfo")
+ ("/home/pankaj/Development/m3_tenant_dev/app/models/" (20336 27639) "company.rb" "periodic_dashboard.rb" "group.rb" "jurisdiction_authority.rb" "flag.rb" "gear_profile_association.rb" "profile_metric/" "./" "period.rb" "#app_mailer.rb#" "purchase_order.rb" "msc_client.rb" "user.rb" "fishery_profile.rb" "#retailer.rb#" "datafile.rb" "category.rb" "msc_client_profile_association.rb" "periodic_purchase.rb" "#user.rb#" "app_mailer.rb" "species.rb" "fishery_identification.rb" "../" "gear.rb" "jurisdiction_authority_profile_association.rb" "country_profile_association.rb" "audit_trail.rb" "management_area.rb" "management_area_profile_association.rb" ".#app_mailer.rb" "tenant.rb" "retailer.rb" "retailer.rb~" ".svn/" "email_notifier.rb" "fishery_type.rb" "supplier.rb" "role.rb" "country.rb" "profile_metric.rb")
 
- ("/home/pankaj/Development/Mudmonk/" (20331 3790) "doc/" "log/" "views/" "./" ".rbx/" "experiments/" "README.md" "../" ".git/" "controller/" "mudmonk.rb")
+ ("/home/pankaj/Development/Mudmonk/controller/" (20336 12652) "./" "syntax_parser.rb" "mudserve.rb" "syntax_parser.rb~" "keyb_handler.rb" "../" "scrn_handler.rb")
+
+ ("/home/pankaj/Development/Mudmonk/" (20336 12652) "doc/" "log/" "views/" "./" ".rbx/" "experiments/" "README.md" "../" ".git/" "controller/" "mudmonk.rb")
 
  ("/home/pankaj/Development/Mudmonk/views/" (20328 22915) "./" "monk.pic~" "mudmonk_ascii.pic" "#mudmonk_ascii.pic#" "monk.pic" "ascii_monk.pic" "../" ".DS_Store")
 
@@ -151,8 +153,6 @@
  ("/home/pankaj/Desktop/" (20323 10741) "./" "iKonverse/" "JobGiraffe DB Structure.txt~" "Installing Ruby On Rails on Ubuntu Linux 11.10~" "Fish_source.txt~" "../" "Fish_source.txt")
 
  ("/home/pankaj/Development/m3_tenant_dev/db/migrate/" (20323 8511) "#20110817095902_add_receive_automated_email_to_users.rb#" "20100219121114_create_categories.rb" "20110811124749_create_management_areas.rb" "./" "20110323081647_create_tenants.rb" "20100226053853_add_rating_columns_to_profile_metric.rb" "20100826195502_add_iucn_to_species.rb" "20110516043732_add_msc_status_to_preferences_hash.rb" "20100219122207_create_periodic_purchases.rb" "20100219120548_create_users.rb" "20100906142101_create_jurisdiction_authorities.rb" "20100304134758_add_maps_info.rb" "20110407052108_create_periodic_dashboards.rb" "20110805132638_add_api_fields.rb" "20100219120713_create_companies.rb" "20110811124854_create_management_area_profile_associations.rb" "20110117100104_add_receive_alert_to_users.rb" "20101122055710_remove_data_files.rb" "20100526124050_create_regions.rb" "20110805125435_create_datafiles.rb" "20100219140441_add_foreign_keys.rb" "20110820052149_change_event_for_audit_trail.rb" "20110324063101_add_fields_to_profile_metric.rb" "20110711060708_add_stock_based_to_profile.rb" "20110818092841_add_login_attempts_to_company.rb" "20100219120737_create_fishery_types.rb" "20110519054635_move_retailer_fields_to_tenant.rb" "20100805084142_create_msc_client_profile_associations.rb" "20100906144053_create_jurisdiction_authority_profile_associations.rb" "20100219122120_create_purchase_orders.rb" "20110301111516_alter_msc_status_type.rb" "20100827185255_add_certification_to_profile_metrics.rb" "20100729054503_remove_regions.rb" "20100526123736_create_species.rb" "20101122061144_create_audit_trails.rb" "../" "20100607120519_add_fishsource_id.rb" "20100608063116_create_gear_profile_associations.rb" "20100526123728_create_groups.rb" "20110823044848_preserve_automatically_notify_suppliers.rb" "20100603063150_add_profile_status_to_profile_metrics.rb" "20100219122710_create_fishery_profiles.rb" "20100716062336_create_countries.rb" "20100906150954_add_gear_group_to_gears.rb" "20100720064850_create_country_profile_associations.rb" "20110805054344_add_automatically_notify_suppliers_to_tenant.rb" ".svn/" "20100219121037_create_periods.rb" "20100614115812_add_indices.rb" "20110820092952_rename_field_for_tenant.rb" "20100308055547_add_column_to_profile_metrics.rb" "20111007100656_change_business_calendar_start.rb" "20100526124424_add_joins.rb" "20100309123348_create_data_files.rb" "20110411132037_add_preferences_hash_to_users.rb" "20110423034103_add_fields_to_table.rb" "20100804121159_add_msc_fields_to_profile_metrics.rb" "20100219121250_create_flags.rb" "20100219121414_create_profile_metrics.rb" "20110817095902_add_receive_automated_email_to_users.rb" "20100805083303_create_msc_clients.rb" "20100726111603_add_general_detail_and_improvement.rb" "20100219123847_create_roles.rb" "20110414051140_add_constants_to_tenant.rb" "20100526125441_create_gears.rb")
-
- ("/home/pankaj/Development/m3_tenant_dev/app/models/" (20323 18794) "company.rb" "periodic_dashboard.rb" "group.rb" "jurisdiction_authority.rb" "flag.rb" "gear_profile_association.rb" "profile_metric/" "./" "period.rb" "purchase_order.rb" "msc_client.rb" "user.rb" "fishery_profile.rb" "#retailer.rb#" "datafile.rb" "category.rb" "msc_client_profile_association.rb" "periodic_purchase.rb" "app_mailer.rb" "species.rb" "fishery_identification.rb" "../" "gear.rb" "jurisdiction_authority_profile_association.rb" "country_profile_association.rb" "audit_trail.rb" "management_area.rb" "management_area_profile_association.rb" "tenant.rb" "retailer.rb" "retailer.rb~" ".svn/" "email_notifier.rb" "fishery_type.rb" "supplier.rb" "role.rb" "country.rb" "profile_metric.rb")
 
  ("/home/pankaj/Development/m3_tenant_dev/config/environments/" (20323 10869) "./" "test.rb" "../" "production.rb" "development.rb" ".svn/")
 
