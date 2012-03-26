@@ -91,3 +91,6 @@ Mail/
 .pgadmin3
 .pgpass
 .psql_history
+.emacs.d/auto-save-list/
+*~
+#*
