@@ -45,3 +45,4 @@ done
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagacad
 export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n$(__git_ps1) ∑\@\[$(tput setaf 1)\] ™➔ \[$(tput sgr0)\]"
+export JRUBY_OPTS=--1.8

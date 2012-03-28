@@ -81,3 +81,12 @@
 
 ;;Delete Selection mode C-d
 (delete-selection-mode t)
+
+
+;;Tabbar-mode
+(add-to-list 'load-path "~/.emacs.d/tabbar")
+(require 'tabbar)
+(tabbar-mode)
+
+;;Tabbed switching with C-TAB
+(global-set-key [C-.] 'tabbar-forward)
