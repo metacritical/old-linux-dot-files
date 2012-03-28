@@ -48,6 +48,8 @@
 (require 'color-theme-solarized)
 (color-theme-solarized-dark)
 
+
+
 ;;Maximize variables based on terminal or not
 
 
@@ -88,5 +90,5 @@
 (require 'tabbar)
 (tabbar-mode)
 
-;;Tabbed switching with C-TAB
-(global-set-key [C-.] 'tabbar-forward)
+;;Tabbed switching with C-SHIFT-TAB <backtab>
+(global-set-key [backtab] 'tabbar-forward)
