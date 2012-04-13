@@ -90,5 +90,5 @@
 (require 'tabbar)
 (tabbar-mode)
 
-;;Tabbed switching with C-SHIFT-TAB <backtab>
+;;Tabbed switching with SHIFT-TAB <backtab>
 (global-set-key [backtab] 'tabbar-forward)
