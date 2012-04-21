@@ -1,5 +1,8 @@
 #Alias list by permissions
-alias lsd='ls -l'
+alias ls='ls --color=auto'
+alias la='ls -A --color=auto'
+alias lsv='ls -v --color=auto'
+alias lsd='ls -l --color=auto'
 alias emcs='emacs -nw'
 alias gchk='git checkout'
 alias gb='git branch'
@@ -10,6 +13,20 @@ alias gcm='git commit'
 alias gcl='git clone'
 alias gpl='git pull'
 alias gps='git push'
+alias gil='git log'
+
+
+#Bash Enable Color prompt
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
 
 #RVM PATH
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
@@ -46,5 +63,5 @@ tput sgr0
 done
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagacad
-export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n$(__git_ps1) ∑\@\[$(tput setaf 1)\] ™➔ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➔ \[$(tput sgr0)\]"
 export JRUBY_OPTS=--1.8
