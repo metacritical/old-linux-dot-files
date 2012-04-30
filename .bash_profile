@@ -1,5 +1,5 @@
 #Alias list by permissions
-alias l='ls -CF --color=auto'
+lias l='ls -CF --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A --color=auto'
 alias lsv='ls -v --color=auto'
@@ -72,7 +72,7 @@ tput sgr0
 done
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagacad
-export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➔ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➤ \[$(tput sgr0)\]"
 export JRUBY_OPTS=--1.8
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
