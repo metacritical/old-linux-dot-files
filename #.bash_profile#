@@ -1,5 +1,5 @@
 #Alias list by permissions
-alias l='ls -CF --color=auto'
+lias l='ls -CF --color=auto'
 alias ls='ls --color=auto'
 alias la='ls -A --color=auto'
 alias lsv='ls -v --color=auto'
