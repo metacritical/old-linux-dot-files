@@ -96,3 +96,9 @@ Mail/
 #*
 .goutputstream-SA26AW
 ruby-warrior/
+.appdata/
+.gksu.lock
+.rpmdb/
+.watchr
+.wine/
+Templates/
