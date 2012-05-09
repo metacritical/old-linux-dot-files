@@ -20,6 +20,7 @@ alias gst='git status'
 alias irb='irb --simple-prompt'
 alias ggrp='gem list | grep'
 alias gel='gem list'
+alias use_rails3='rvm use ruby-1.9.3-p125@rails3'
 
 #Set Xterm to use 256 color
 export TERM=xterm-256color
@@ -46,7 +47,7 @@ PATH=$PATH:$HOME/.rvm/bin:/usr/local/cmucl-20c/bin/:~/Softwares/bitchx:~/Softwar
 
 #Sublime Alias`
 alias st2='$HOME/Softwares/Sublime\ Text\ 2/sublime_text &'
-alias opt='source $HOME/.bash_profile'
+alias opt='clear;source $HOME/.bash_profile'
 
 echo "$(tput setaf 7)$(tput setab 1)Select an app:$(tput sgr0)"
 tput setaf 3

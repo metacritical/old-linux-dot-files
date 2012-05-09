@@ -1,0 +1,73 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Wed May  9 08:52:23 2012
+;; Desktop file format version 206
+;; Emacs version 23.3.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring nil)
+(setq register-alist (list (list 49 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk)) (list 100 "Unprintable entity" (let ((mk (make-marker))) (add-hook 'desktop-delay-hook (list 'lambda '() (list 'set-marker mk nil (get-buffer " *temp*")))) mk))))
+(setq file-name-history '("/home/pankaj/Development/its_onions3/onions/app/assets/stylesheets/application.css" "/home/pankaj/Development/its_onions3/onions/app/controllers/movies_controller.rb" "/home/pankaj/Development/its_onions3/onions/app/views/movies/index.html.erb" "/home/pankaj/Development/ChrisPine_UROM.ppt" "/home/pankaj/.emacs" "/home/pankaj/Development/its_onions3/onions/app/views/movies/index.html.erb" "/home/pankaj/Development/its_onions3/onions/app/controllers/movies_controller.rb" "/home/pankaj/Development/its_onions3/onions/spec/spec_helper.rb" "/home/pankaj/Development/its_onions3/onions/spec/requests/movies_spec.rb" "/home/pankaj/Development/its_onions3/onions/Gemfile" "/home/pankaj/.emacs.d/emac_themes/color-theme-molokai/color-theme-molokai.el" "/home/pankaj/.emacs.d/emac_themes/almost-monokai/color-theme-almost-monokai.el" "/home/pankaj/Development/its_onions3/onions/Gemfile" "/home/pankaj/.emacs" "/home/pankaj/Development/its_onions3/student/app/controllers/posts_controller.rb" "/home/pankaj/Development/its_onions3/onions/spec/requests/movies_spec.rb" "/home/pankaj/.emacs"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/pankaj/Development/its_onions3/onions/.git/COMMIT_EDITMSG"
+  "COMMIT_EDITMSG"
+  'fundamental-mode
+  '(rinari-minor-mode tm/minor-mode)
+  21
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/pankaj/Development/its_onions3/onions/app/views/movies/index.html.erb"
+  "index.html.erb"
+  'html-mode
+  '(tm/minor-mode)
+  548
+  '(496 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/pankaj/Development/its_onions3/onions/app/controllers/movies_controller.rb"
+  "movies_controller.rb"
+  'ruby-mode
+  '(rinari-minor-mode tm/minor-mode)
+  1
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/pankaj/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(tm/minor-mode)
+  3077
+  '(2986 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/pankaj/Development/its_onions3/onions/app/assets/stylesheets/application.css"
+  "application.css"
+  'css-mode
+  '(rinari-minor-mode)
+  571
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+

@@ -31,8 +31,20 @@
 
 ;;Color Theme select based on terminal or gui mode
 ;;(require 'color-theme)
-;; (load "~/.emacs.d/emac_themes/color-theme-cobalt.el")
-;; (color-theme-cobalt)
+;;(load "~/.emacs.d/emac_themes/almost-monokai/color-theme-almost-monokai.el")
+;;(color-theme-almost-monokai)
+
+;;Color Theme select based on terminal or gui mode
+(require 'color-theme)
+(load "~/.emacs.d/emac_themes/color-theme-molokai/color-theme-molokai.el")
+(color-theme-molokai)
+
+;;Black theme
+;;(require 'color-theme)
+;;(black)
+
+
+
 
 ;;Dirtree pointing current directory
 ;;
@@ -44,14 +56,16 @@
 ;;Solarized Dark Theme
 ;;
 
-(add-to-list 'load-path "~/.emacs.d/emac_themes/emacs-color-theme-solarized/")
-(require 'color-theme-solarized)
-(color-theme-solarized-dark)
+;;(add-to-list 'load-path "~/.emacs.d/emac_themes/emacs-color-theme-solarized/")
+;;(require 'color-theme-solarized)
+;;(color-theme-solarized-dark)
 
+
+;;Default desktop save mode
+(desktop-save-mode 1)
 
 
 ;;Maximize variables based on terminal or not
-
 
 ;;Toggle menu bar mode from frame
 (toggle-menu-bar-mode-from-frame)
@@ -61,13 +75,12 @@
       (winner-mode 1))
 
 ;;Scrollbar only when window mode and toolbar.
-(scroll-bar-mode -1)
-(tool-bar-mode -1)
+;;(scroll-bar-mode -1)
+;;(tool-bar-mode -1)
 
 ;;Set Cursor Color
 (setq default-frame-alist
   '((cursor-color . "red")))
-
 
 ;;Icicles Library "Autocompletion"
 (load "~/.emacs.d/elpa/icicles-install.el")
@@ -78,11 +91,25 @@
 (tm/initialize)
 
 ;;Enable Ruby MOde By Default
-(ruby-mode)
+;;(ruby-mode)
+(rinari-minor-mode)
 (put 'upcase-region 'disabled nil)
 
 ;;Delete Selection mode C-d
 (delete-selection-mode t)
+
+;;Enable Rinari mode by default
+(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
+(setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
+;;
+(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
+(setq auto-mode-alist  (cons '(".erb$" . ruby-mode) auto-mode-alist))
+;;
+(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
+(setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
+;;
+;;(autoload 'html-mode "html-mode" "Major mode for editing embedded ruby scripts." t)
+;;(setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
 
 
 ;;Tabbar-mode
