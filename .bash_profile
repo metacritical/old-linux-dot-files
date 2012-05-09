@@ -21,6 +21,8 @@ alias irb='irb --simple-prompt'
 alias ggrp='gem list | grep'
 alias gel='gem list'
 alias use_rails3='rvm use ruby-1.9.3-p125@rails3'
+alias bitchx='/home/pankaj/Softwares/bitchx/BitchX'
+alias beg='bundle exec guard'
 
 #Set Xterm to use 256 color
 export TERM=xterm-256color

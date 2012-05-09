@@ -102,3 +102,5 @@ ruby-warrior/
 .watchr
 .wine/
 Templates/
+.emacs.desktop
+.emacs.desktop.lock

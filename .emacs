@@ -83,7 +83,7 @@
   '((cursor-color . "red")))
 
 ;;Icicles Library "Autocompletion"
-(load "~/.emacs.d/elpa/icicles-install.el")
+;;(load "~/.emacs.d/elpa/icicles-install.el")
 
 ;;Emacs-textmate
 (add-to-list 'load-path "~/.emacs.d/emacs-textmate")
@@ -105,11 +105,11 @@
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
 (setq auto-mode-alist  (cons '(".erb$" . ruby-mode) auto-mode-alist))
 ;;
-(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
-(setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
+;;(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
+;;(setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
 ;;
 ;;(autoload 'html-mode "html-mode" "Major mode for editing embedded ruby scripts." t)
-;;(setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
 
 
 ;;Tabbar-mode
@@ -119,3 +119,13 @@
 
 ;;Tabbed switching with SHIFT-TAB <backtab>
 (global-set-key [backtab] 'tabbar-forward)
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
