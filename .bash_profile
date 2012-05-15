@@ -18,11 +18,22 @@ alias gps='git push'
 alias gil='git log'
 alias gst='git status'
 alias irb='irb --simple-prompt'
+alias gtgrp='gem grep'
 alias ggrp='gem list | grep'
 alias gel='gem list'
-alias use_rails3='rvm use ruby-1.9.3-p125@rails3'
+alias rails3='rvm use ruby-1.9.3-p125@rails3'
+alias rails2='rvm use ruby-1.8.7@onions'
 alias bitchx='/home/pankaj/Softwares/bitchx/BitchX'
 alias beg='bundle exec guard'
+alias db:c='rake db:create'
+alias db:m='rake db:migrate'
+alias db:d='rake db:drop'
+alias db:seed='rake db:seed'
+alias db:s='rake db:setup'
+alias rmrf='rm -rf'
+alias cat='pygmentize'
+alias src='source ~/.bash_profile'
+alias rr='rake routes'
 
 #Set Xterm to use 256 color
 export TERM=xterm-256color
@@ -78,7 +89,7 @@ tput sgr0
 done
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagacad
-export PS1="\[$(tput bold)$(tput setaf 3)\]$(pwd)/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➤ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)$(tput setaf 3)\]\[$(pwd)\]/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➤ \[$(tput sgr0)\]"
 export JRUBY_OPTS=--1.8
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)

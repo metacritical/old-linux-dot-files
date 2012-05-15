@@ -104,3 +104,9 @@ ruby-warrior/
 Templates/
 .emacs.desktop
 .emacs.desktop.lock
+.npm
+.w3m
+iKonverse.zip
+iKonverse
+node_modules
+npm-debug.log

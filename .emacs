@@ -18,6 +18,10 @@
 
 (setq inhibit-startup-message t)
 
+
+;;Global TAB-Width
+(setq-default tab-width 2)
+
 ;;putty Arrow Keys
 ;;
 
@@ -41,7 +45,25 @@
 
 ;;Black theme
 ;;(require 'color-theme)
-;;(black)
+;;(color-theme-black)
+
+;;Rails Casts Colortheme
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(load-file "~/.emacs.d/emac_themes/color-theme-railscasts.el")
+;;(color-theme-railscasts)
+
+
+
+
+
+
+
+
+
+;;Less CSS Major mode
+(load "~/.emacs.d/elpa/less-css-mode.el")
+(less-css-mode)
 
 
 
@@ -99,17 +121,15 @@
 (delete-selection-mode t)
 
 ;;Enable Rinari mode by default
+;;Major mode for editing embedded ruby scripts css and Gemfile.
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
 (setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
-;;
-(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
-(setq auto-mode-alist  (cons '(".erb$" . ruby-mode) auto-mode-alist))
-;;
-;;(autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
-;;(setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
-;;
-;;(autoload 'html-mode "html-mode" "Major mode for editing embedded ruby scripts." t)
+(setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '(".css.less$" . css-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '(".css$" . css-mode) auto-mode-alist))
+(add-to-list 'auto-mode-alist '(".js.coffee$" . coffee-mode))
+(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
 
 
 ;;Tabbar-mode
@@ -119,6 +139,10 @@
 
 ;;Tabbed switching with SHIFT-TAB <backtab>
 (global-set-key [backtab] 'tabbar-forward)
+
+;;Coffee Script Major Mode
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
