@@ -31,7 +31,7 @@ alias db:d='rake db:drop'
 alias db:seed='rake db:seed'
 alias db:s='rake db:setup'
 alias rmrf='rm -rf'
-alias cat='pygmentize'
+alias ccat='pygmentize'
 alias src='source ~/.bash_profile'
 alias rr='rake routes'
 
@@ -83,7 +83,7 @@ tput bold
       bitchx) bitchx;;
       vim) vim;;
       sublime) st2;;
-      bash) break;;
+      bash) clear;break;;
   esac
 tput sgr0
 done
@@ -99,8 +99,8 @@ HISTFILESIZE=8000
 #LESSPIPE -- less file processing
 eval "$(lesspipe)"
 
-export LESSOPEN="| /usr/bin/lesspipe %s";
-export LESSCLOSE="/usr/bin/lesspipe %s %s";
+export LESSOPEN="| /usr/share/source-highlight/src-hilite-lesspipe.sh %s";
+export LESS=" -R ";
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
