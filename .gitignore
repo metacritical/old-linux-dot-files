@@ -110,7 +110,6 @@ iKonverse.zip
 iKonverse
 node_modules
 npm-debug.log
-n.compiz
 .compiz
 .pki
 .tracemodeler
@@ -121,5 +120,4 @@ n.compiz
 .ggtkrc
 .gtkrc
 .pam_environment
-.scmbrc
 .slime-history.eld
