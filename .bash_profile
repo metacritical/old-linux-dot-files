@@ -5,7 +5,7 @@ alias la='ls -A --color=auto'
 alias lsv='ls -v --color=auto'
 alias lsd='ls -l --color=auto'
 alias ll='ls -alF --color=auto'
-alias emcs='emacs -nw'
+alias emcs='emacs'
 alias gchk='git checkout'
 alias gb='git branch'
 alias ga='git add'
@@ -30,6 +30,8 @@ alias db:m='rake db:migrate'
 alias db:d='rake db:drop'
 alias db:seed='rake db:seed'
 alias db:s='rake db:setup'
+alias rdbc='rails dbconsole'
+alias rcon='rails console'
 alias rmrf='rm -rf'
 alias ccat='pygmentize'
 alias src='source ~/.bash_profile'
@@ -37,6 +39,13 @@ alias rr='rake routes'
 
 #Set Xterm to use 256 color
 export TERM=xterm-256color
+
+#Setup Default Editor
+export EDITOR=emacs
+
+
+
+
 
 
 #Bash Enable Color prompt
