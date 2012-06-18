@@ -21,8 +21,8 @@ alias irb='irb --simple-prompt'
 alias gtgrp='gem grep'
 alias ggrp='gem list | grep'
 alias gel='gem list'
-alias rails3='rvm use ruby-1.9.3-p125@rails3'
-alias rails2='rvm use ruby-1.8.7@onions'
+alias r3='rvm use ruby-1.9.2-p290@onions'
+alias r2='rvm use ruby-1.8.7@onions'
 alias bitchx='/home/pankaj/Softwares/bitchx/BitchX'
 alias beg='bundle exec guard'
 alias db:c='rake db:create'
@@ -30,7 +30,15 @@ alias db:m='rake db:migrate'
 alias db:d='rake db:drop'
 alias db:seed='rake db:seed'
 alias db:s='rake db:setup'
-alias rdbc='rails dbconsole'
+alias db:r='rake db:migrate:redo'
+alias rdbt='rails dbconsole test -p --mode line'
+alias rdbc='rails dbconsole --mode line'
+alias rs='rails server'
+alias rc='rails console'
+alias rexd='vncviewer 192.168.3.94'
+alias pep='rvm use rails-1.9.3-p125@petpro'
+alias heroku:db:drop='heroku run su rake db:drop'
+
 alias rcon='rails console'
 alias rmrf='rm -rf'
 alias ccat='pygmentize'
@@ -42,11 +50,6 @@ export TERM=xterm-256color
 
 #Setup Default Editor
 export EDITOR=emacs
-
-
-
-
-
 
 #Bash Enable Color prompt
 if [ -n "$force_color_prompt" ]; then
@@ -60,9 +63,7 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-#RVM PATH
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"  # This loads RVM
-PATH=$PATH:$HOME/.rvm/bin:/usr/local/cmucl-20c/bin/:~/Softwares/bitchx:~/Softwares/git-info # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.rvm/bin:/usr/local/cmucl-20c/bin/:~/Softwares/bitchx:~/Softwares/git-info:~/.custom_scripts
 
 #SCM Breeze
 [ -s "/home/pankaj/.scm_breeze/scm_breeze.sh" ] && . "/home/pankaj/.scm_breeze/scm_breeze.sh"
@@ -80,7 +81,7 @@ tput bold
   tput setaf 3
   case $i in
       irb) irb --simple-prompt;;
-      emacs) emacs -nw;;
+      emacs) emacs-snapshot-gtk;;
       rubinius) rvm use rbx;rbx;;
       node.js) node;;
       gnu-smalltalk) gst;;

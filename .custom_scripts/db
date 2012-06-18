@@ -1,0 +1,17 @@
+#!/usr/bin/ruby
+
+
+options = ARGV.first
+if options == 'm'
+  %x[rake db:migrate]
+elsif options == 'c'
+  %x[rake db:create]
+elsif options == 'd'
+  %x[rake db:drop]
+elsif options == 'r'
+  if ARGV[1].to_i
+    %x[rake db:migrate:redo VERSION=#{ARGV[1]}]
+  else 
+    puts "Provide a Version using VERSION=XXXXXXXX"
+  end
+end

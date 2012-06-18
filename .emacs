@@ -30,6 +30,10 @@
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
 
+;;Global Set font Monaco
+(set-face-attribute 'default nil :font "Monaco-11")
+
+
 ;;Dirtree plugin https://github.com/zkim/emacs-dirtree
 (require 'dirtree "dirtree" "Add directory to tree view")
 
@@ -43,6 +47,17 @@
 (load "~/.emacs.d/emac_themes/color-theme-molokai/color-theme-molokai.el")
 (color-theme-molokai)
 
+;;Color Theme select based on terminal or gui mode
+;;(require 'color-theme)
+;;(load "~/.emacs.d/emac_themes/monokai-theme.el")
+;;(color-theme-monokai)
+
+;;Color Theme select based on terminal or gui mode
+;;(require 'color-theme)
+;;(load "~/.emacs.d/emac_themes/color-theme-monokai.el")
+;;(color-theme-monokai)
+
+
 ;;Black theme
 ;;(require 'color-theme)
 ;;(color-theme-black)
@@ -52,11 +67,6 @@
 ;;(color-theme-initialize)
 ;;(load-file "~/.emacs.d/emac_themes/color-theme-railscasts.el")
 ;;(color-theme-railscasts)
-
-
-
-
-
 
 
 
@@ -153,3 +163,14 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+		(load
+		 (expand-file-name "~/.emacs.d/elpa/package.el"))
+	(package-initialize))
