@@ -105,7 +105,7 @@ done
 export CLICOLOR=1
 #export LSCOLORS=BxFxCxDxBxegedabagacad
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-export PS1="\[\$(tput bold)\$(tput setaf 6)\]\n\w\n\[\$(tput setaf 7)\$(tput bold)\]\[\$(tput bold)\$(git_tree)\] ↩ \[\$(tput sgr0)\]\@\[\$(tput setaf 1)\] ™➤ \[\$(tput sgr0)\]"
+export PS1="\[\$(tput bold)\$(tput setaf 6)\]\n\w\n\[\$(tput setaf 7)\$(tput bold)\]\[\$(tput bold)\$(git_tree)\] ↩ \[\$(tput sgr 0 0)\]\@\[\$(tput setaf 1)\] ™➤ \[\$(tput sgr 0 0)\]"
 export JRUBY_OPTS=--1.8
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)

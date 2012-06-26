@@ -1,14 +1,13 @@
 #!/usr/bin/ruby
 # -*- coding: utf-8 -*-
 
-git_out = %x['git' 'status']
+git_status = %x['git' 'status']
 
-if git_out =~ /working directory clean/
+if git_status =~ /working directory clean/
   puts "☯"
-elsif git_out =~ /Changes not staged for commit:/
+elsif git_status =~ /Changes to be committed/
   puts "♺"
-else
-  #puts "☣"
-  puts "☢"
+elsif git_status =~ /Changes not staged for commit:/ 
+  puts "☢" 
 end
 
