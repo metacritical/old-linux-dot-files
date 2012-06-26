@@ -18,7 +18,7 @@ alias gps='git push'
 alias gil='git log'
 alias gst='git status'
 alias irb='irb --simple-prompt'
-alias gtgrp='gem grep'
+alias gmgrp='gem grep'
 alias ggrp='gem list | grep'
 alias gel='gem list'
 alias r3='rvm use ruby-1.9.2-p290@onions'
@@ -38,6 +38,11 @@ alias rc='rails console'
 alias rexd='vncviewer 192.168.3.94'
 alias pep='rvm use rails-1.9.3-p125@petpro'
 alias heroku:db:drop='heroku run su rake db:drop'
+alias alex-connect='ssh alex@192.168.3.234'
+alias cd.='cd ..'
+alias cd..='cd ../../'
+alias cd...='cd ../../../'
+alias cd....='cd ../../../../'
 
 alias rcon='rails console'
 alias rmrf='rm -rf'
@@ -99,7 +104,7 @@ tput sgr0
 done
 export CLICOLOR=1
 export LSCOLORS=BxFxCxDxBxegedabagacad
-export PS1="\[$(tput bold)$(tput setaf 3)\]\[$(pwd)\]/\[$(tput setaf 5)\]\w\n∑\@\[$(tput setaf 1)\] ™➤ \[$(tput sgr0)\]"
+export PS1="\[$(tput bold)$(tput setaf 6)\]\n\w\n\[$(tput setab 0)$(tput setaf 7)$(tput bold)\]\[$(git_tree)\] ↩ \[$(tput sgr0)\]\@\[$(tput setaf 1)\] ™➤ \[$(tput sgr0)\]"
 export JRUBY_OPTS=--1.8
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)

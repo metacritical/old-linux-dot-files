@@ -1,0 +1,12 @@
+#!/usr/bin/ruby
+# -*- coding: utf-8 -*-
+
+git_out = %x['git' 'status']
+
+if git_out =~ /working directory clean/
+  puts "☯"
+else
+  #puts "☣"
+  puts "☢"
+end
+
