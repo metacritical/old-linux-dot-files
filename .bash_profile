@@ -102,10 +102,30 @@ tput bold
   esac
 tput sgr0
 done
+
+
+function header_clock {
+		tput cuu1
+		tput sc
+		let x_cols=$(tput cols)-33
+		tput cup 0 ${x_cols}
+		tput setaf 4 ; tput bold
+		echo -n "["
+		tput setaf 1
+		echo -n "$(date +%c)"
+		tput setaf 4 ; tput bold
+		echo -n "]"
+		tput rc
+}
+
 export CLICOLOR=1
 #export LSCOLORS=BxFxCxDxBxegedabagacad
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
-export PS1="\[\$(tput bold)\$(tput setaf 6)\]\n\w\n\[\$(tput setab 8)\$(tput setaf 7)\$(tput bold)\]\[\$(tput bold)\$(git_tree)\] ↩ \[\$(tput sgr 0 0)\]\@\[\$(tput setaf 1)\] ™➤ \[\$(tput sgr 0 0)\]"
+
+PROMPT_COMMAND=header_clock
+
+export PS1="\[\$(tput setaf 6;tput bold)\]\n\n\w\n\[\$(tput setab 8;tput setaf 7;tput bold)\]\[\$(tput bold;git_tree)\] ↩ \[\$(tput sgr 0 0)\]\[\$(tput setaf 1)\] ™➤ "
+
 export JRUBY_OPTS=--1.8
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
