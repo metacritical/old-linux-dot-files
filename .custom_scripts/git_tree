@@ -11,7 +11,7 @@ git_status = %x['git' 'status']
 
 if git_status =~ /working directory clean/
   #puts "☘"
-  #puts "☻ "
+  #puts "☻"
   puts "☯"
   #puts "⚑"
 elsif git_status =~ /Changes to be committed/
@@ -20,7 +20,6 @@ elsif git_status =~ /Changes to be committed/
 elsif git_status =~ /Changes not staged for commit:/ 
   puts "☢"
   #puts "⚔"
-else
+elsif git_status =~ /Untracked files/
   puts "☀"
 end
-
