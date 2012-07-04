@@ -12,7 +12,12 @@ git_status = %x['git' 'status']
 if git_status =~ /working directory clean/
   #puts "☘"
   #puts "☻"
-  puts "☯"
+  if git_status =~ /branch is ahead/
+    out = puts "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
+  else
+    puts "☯"
+  end
+
   #puts "⚑"
 elsif git_status =~ /Changes to be committed/
   puts "♻"
