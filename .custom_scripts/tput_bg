@@ -1,0 +1,4 @@
+#!/usr/bin/ruby
+
+(0..256).each{|color| system("tput setab #{color}");puts color}
+

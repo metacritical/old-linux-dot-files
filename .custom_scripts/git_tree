@@ -5,6 +5,7 @@
 #system('/bin/bash ~/.bash_profile')
 
 #%x['/bin/bash' '/home/pankaj/.bash_profile']
+out_prompt ||= []
 
 git_status = %x['git' 'status']
 #x['rvm use ruby-1.9.2-p290@onions']
@@ -13,18 +14,30 @@ if git_status =~ /working directory clean/
   #puts "☘"
   #puts "☻"
   if git_status =~ /branch is ahead/
-    out = puts "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
+    out_prompt << "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
   else
-    puts "☯"
+    put_prompt << "☯"
   end
 
   #puts "⚑"
 elsif git_status =~ /Changes to be committed/
-  puts "♻"
+  out_prompt << "♻"
   #puts "♺"
 elsif git_status =~ /Changes not staged for commit:/ 
-  puts "☢"
+  out_prompt << "☢"
   #puts "⚔"
 elsif git_status =~ /Untracked files/
-  puts "☀"
+  out_prompt << "☀"
 end
+
+
+#GIT Branch
+git_branch = %x[git branch].find{|i| i.match(/^\*/)}
+
+if git_branch != ""
+  out_prompt << git_branch
+end
+
+
+puts out_prompt.to_s
+
