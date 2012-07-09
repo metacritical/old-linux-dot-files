@@ -16,7 +16,7 @@ if git_status =~ /working directory clean/
   if git_status =~ /branch is ahead/
     out_prompt << "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
   else
-    put_prompt << "☯"
+    out_prompt << "☯"
   end
 
   #puts "⚑"
