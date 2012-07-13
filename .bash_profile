@@ -62,7 +62,7 @@ alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 export TERM=xterm-256color
 
 #Setup Default Editor
-export EDITOR=emacs
+export EDITOR=emacsclient -nw
 
 #Bash Enable Color prompt
 if [ -n "$force_color_prompt" ]; then
