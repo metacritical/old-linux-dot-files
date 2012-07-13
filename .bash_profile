@@ -5,7 +5,8 @@ alias la='ls -A --color=auto'
 alias lsv='ls -v --color=auto'
 alias lsd='ls -l --color=auto'
 alias ll='ls -alF --color=auto'
-alias emcs='emacs'
+alias emcs='emacs --daemon'
+alias emcl='emacsclient -nw'
 alias gchk='git checkout'
 alias gb='git branch'
 alias ga='git add'
@@ -46,12 +47,16 @@ alias cd.='cd ..'
 alias cd..='cd ../../'
 alias cd...='cd ../../../'
 alias cd....='cd ../../../../'
+alias junkemacs='emacs -q -l ~/Softwares/emacs-starter-kit/init.el'
 
 alias rcon='rails console'
 alias rmrf='rm -rf'
 alias ccat='pygmentize'
 alias src='source ~/.bash_profile'
 alias rr='rake routes'
+
+
+alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 
 #Set Xterm to use 256 color
 export TERM=xterm-256color
