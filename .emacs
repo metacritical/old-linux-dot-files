@@ -1,3 +1,11 @@
+;;In the Unix Apostolic tradition, emacs stands as the bridge of time that spans TECO to Modern Computers.
+;;Stallman wrote the first set of editor macros in 1976 for TECO which became emacs. Emacs has stood the test of time 
+;;and is the most extensible editor known to man. Emacs was and still is ahead of its time, the editor with a built
+;;in garbage collected language which could also produce native code and the entire editor could be extended and 
+;;build using the same language (elisp) an dialect of LISP.
+
+
+
 ;; Interactively Do Things (highly recommended, but not strictly required)
 (require 'ido)
    (ido-mode t)
@@ -174,7 +182,5 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
-
-
 
 
