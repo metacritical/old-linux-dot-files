@@ -3,8 +3,9 @@
 
 #require 'termcolor'
 #system('/bin/bash ~/.bash_profile')
-
 #%x['/bin/bash' '/home/pankaj/.bash_profile']
+#puts %x[git branch].find{|i| i.match(/^\*/)}
+
 out_prompt ||= []
 
 git_status = %x['git' 'status']
@@ -32,7 +33,7 @@ end
 
 
 #GIT Branch
-git_branch = %x[git branch].find{|i| i.match(/^\*/)}
+git_branch = %x[git branch].match(/^\*.\w+/) || "NO-VC"
 
 if git_branch != ""
   out_prompt << git_branch

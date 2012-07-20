@@ -111,7 +111,6 @@ tput bold
 tput sgr0
 done
 
-
 function header_clock {
 		tput cuu1
 		tput sc
