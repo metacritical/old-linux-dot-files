@@ -55,7 +55,7 @@ alias rmrf='rm -rf'
 alias ccat='pygmentize'
 alias src='source ~/.bash_profile'
 alias rr='rake routes'
-
+alias spark='~/Softweres/Spark;./spark'
 
 alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 
@@ -89,7 +89,7 @@ alias opt='clear;source $HOME/.bash_profile'
 echo "$(tput setaf 7)$(tput setab 1)Select an app:$(tput sgr0)"
 tput setaf 3
 
-select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx
+select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark
 do
 tput bold
   tput setaf 3
@@ -105,6 +105,7 @@ tput bold
       opt) echo "Type opt when in bash for this menu.";;
       source) source $HOME/.bash_profile;;
       bitchx) bitchx;;
+			spark) spark;;
       vim) vim;;
       sublime) st2;;
       bash) clear;break;;
