@@ -55,6 +55,19 @@
 (load "~/.emacs.d/emac_themes/color-theme-molokai/color-theme-molokai.el")
 (color-theme-molokai)
 
+
+;;Pankajs Custom color theme
+;;(require 'color-theme)
+;;(load "~/.emacs.d/emac_themes/pankajs-color-theme.el")
+;;(pankajs-custom-theme)
+;;(color-theme-initialize)
+
+;;Amelie color theme based on slim
+;;(require 'color-theme)
+;;(load "~/.emacs.d/emac_themes/amelie-theme/Amelie-theme.el")
+;;(Amelie)
+
+
 ;;Color Theme select based on terminal or gui mode
 ;;(require 'color-theme)
 ;;(load "~/.emacs.d/emac_themes/monokai-theme.el")
