@@ -135,7 +135,7 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 PROMPT_COMMAND=header_clock
 
-export PS1="\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \$(git_tree) \[\$(tput sgr0)\] ↩ \[\$(tput sgr0)\]\[\$(tput setaf 198)\]™\[\$(tput sgr0)\]\[\$(tput setaf 220)\] ➤ \[\$(tput sgr0)\]"
+export PS1="\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] $(git_tree) \[\$(tput sgr0)\] ↩ \[\$(tput sgr0)\]\[\$(tput setaf 198)\]™\[\$(tput sgr0)\]\[\$(tput setaf 220)\] ➤ \[\$(tput sgr0)\]"
 
 export JRUBY_OPTS=--1.8
 
