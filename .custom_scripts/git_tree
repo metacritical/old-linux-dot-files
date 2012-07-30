@@ -7,38 +7,39 @@
 #puts %x[git branch].find{|i| i.match(/^\*/)}
 
 out_prompt ||= []
-
-git_status = %x['git' 'status']
-#x['rvm use ruby-1.9.2-p290@onions']
-
-if git_status =~ /working directory clean/
-  #puts "☘"
-  #puts "☻"
-  if git_status =~ /branch is ahead/
-    out_prompt << "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
-  else
-    out_prompt << "☯"
+if `ls -a` =~ /.git/   #Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7
+  git_status = %x['git' 'status']
+  #x['rvm use ruby-1.9.2-p290@onions']
+  
+  if git_status =~ /working directory clean/
+    #puts "☘"
+    #puts "☻"
+    if git_status =~ /branch is ahead/
+      out_prompt << "☯" #+ "{git_status.to_a[1].split(/*..commits/)}"
+    else
+      out_prompt << "☯"
+    end
+    
+    #puts "⚑"
+  elsif git_status =~ /Changes to be committed/
+    out_prompt << "♻"
+    #puts "♺"
+  elsif git_status =~ /Changes not staged for commit:/ 
+    out_prompt << "☢"
+    #puts "⚔"
+  elsif git_status =~ /Untracked files/
+    out_prompt << "☀"
   end
-
-  #puts "⚑"
-elsif git_status =~ /Changes to be committed/
-  out_prompt << "♻"
-  #puts "♺"
-elsif git_status =~ /Changes not staged for commit:/ 
-  out_prompt << "☢"
-  #puts "⚔"
-elsif git_status =~ /Untracked files/
-  out_prompt << "☀"
+  
+  
+  #GIT Branch
+  git_branch = %x[git branch].match(/^\*.\w+/) || "NO-VC"
+  
+  if git_branch != ""
+    out_prompt << git_branch
+  end
+else
+  out_prompt << "NO-VC"
 end
 
-
-#GIT Branch
-git_branch = %x[git branch].match(/^\*.\w+/) || "NO-VC"
-
-if git_branch != ""
-  out_prompt << git_branch
-end
-
-
-puts out_prompt.to_s
-
+puts out_prompt.to_s  
