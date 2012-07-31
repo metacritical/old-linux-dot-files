@@ -65,7 +65,7 @@ alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 export TERM=xterm-256color
 
 #Setup Default Editor
-export EDITOR=emacsclient -nw
+export EDITOR=emacs
 
 #Bash Enable Color prompt
 if [ -n "$force_color_prompt" ]; then
@@ -130,12 +130,12 @@ function header_clock {
 }
 
 export CLICOLOR=1
-#export LSCOLORS=BxFxCxDxBxegedabagacad
+#export LSCOLORS='BxFxCxDxBxegedabagacad'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
-PROMPT_COMMAND=header_clock
+#PROMPT_COMMAND=header_clock
 
-export PS1="\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \[\$(git_tree)\] \[\$(tput sgr0)\] ↩ \[\$(tput sgr0)\]\[\$(tput setaf 198)\]™\[\$(tput sgr0)\]\[\$(tput setaf 220)\]➤ \[\$(tput sgr0)\]"
+PS1="\[\$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] $(git_tree) \[\$(tput sgr0)\] ↩\[\$(tput sgr0)\]\[\$(tput setaf 198)\] ™\[\$(tput sgr0)\]\[\$(tput setaf 220)\]➤ \[\$(tput sgr0)\]"
 
 export JRUBY_OPTS=--1.8
 
