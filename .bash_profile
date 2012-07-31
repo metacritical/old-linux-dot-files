@@ -115,7 +115,6 @@ tput bold
 tput sgr0
 done
 
-
 export CLICOLOR=1
 #export LSCOLORS='BxFxCxDxBxegedabagacad'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
@@ -126,7 +125,6 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 export CUSTOM_SCRIPTS=$HOME/.custom_scripts
 
 #Bash Scripts Includer
-echo $CUSTOM_SCRIPTS
 $CUSTOM_SCRIPTS/includer.sh
 
 
