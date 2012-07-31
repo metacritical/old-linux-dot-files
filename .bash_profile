@@ -115,25 +115,22 @@ tput bold
 tput sgr0
 done
 
-function header_clock {
-		tput cuu1
-		tput sc
-		let x_cols=$(tput cols)-33
-		tput cup 0 ${x_cols}
-		tput setaf 4 ; tput bold
-		echo -n "["
-		tput setaf 1
-		echo -n "$(date +%c)"
-		tput setaf 4 ; tput bold
-		echo -n "]"
-		tput rc
-}
 
 export CLICOLOR=1
 #export LSCOLORS='BxFxCxDxBxegedabagacad'
 export LSCOLORS='Gxfxcxdxdxegedabagacad'
 
 #PROMPT_COMMAND=header_clock
+
+#Custom Scipts Folder
+export CUSTOM_SCRIPTS=$HOME/.custom_scripts
+
+#Bash Scripts Includer
+echo $CUSTOM_SCRIPTS
+$CUSTOM_SCRIPTS/includer.sh
+
+
+
 
 PS1="\[\$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] $(git_tree) \[\$(tput sgr0)\] ↩\[\$(tput sgr0)\]\[\$(tput setaf 198)\] ™\[\$(tput sgr0)\]\[\$(tput setaf 220)\]➤ \[\$(tput sgr0)\]"
 
