@@ -50,6 +50,7 @@ alias cd....='cd ../../../../'
 alias junkemacs='emacs-snapshot-gtk -q -l ~/Softwares/emacs-starter-kit/init.el'
 alias emcs='emacs --daemon'
 alias emcl='r3;emacsclient -nw'
+alias kemcl='emacsclient -e "(save-buffers-kill-emacs)"'
 alias _='sudo'
 alias rcon='rails console'
 alias rmrf='rm -rf'
@@ -65,7 +66,7 @@ alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 export TERM=xterm-256color
 
 #Setup Default Editor
-export EDITOR=emacs
+export EDITOR='emacsclient -nw'
 
 #Bash Enable Color prompt
 if [ -n "$force_color_prompt" ]; then
@@ -125,12 +126,12 @@ export LSCOLORS='Gxfxcxdxdxegedabagacad'
 export CUSTOM_SCRIPTS=$HOME/.custom_scripts
 
 #Bash Scripts Includer
-$CUSTOM_SCRIPTS/includer.sh
+source $CUSTOM_SCRIPTS/includer.sh
 
 
 
 
-PS1="\[\$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] $(git_tree) \[\$(tput sgr0)\] ↩\[\$(tput sgr0)\]\[\$(tput setaf 198)\] ™\[\$(tput sgr0)\]\[\$(tput setaf 220)\]➤ \[\$(tput sgr0)\]"
+PS1="\[$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \[$(git_tree)\] \[\$(printf '\033[0m')\] ↩\[\$(tput setaf 198)\] ™\[\$(tput setaf 220)\]➤ \[\$(printf '\033[0m')\]"
 
 export JRUBY_OPTS=--1.8
 

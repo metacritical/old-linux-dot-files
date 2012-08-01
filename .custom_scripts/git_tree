@@ -36,10 +36,10 @@ if `ls -a` =~ /.git/   #Dir.open('.').entries.include?('.git'), this is too long
   git_branch = %x[git branch].match(/^\*.\w+/) || "NO-VC"
   
   if git_branch != ""
-    out_prompt << git_branch
+    out_prompt << git_branch.to_s
   end
 else
   out_prompt << "NO-VC"
 end
 
-puts out_prompt.to_s  
+puts out_prompt.to_s # 

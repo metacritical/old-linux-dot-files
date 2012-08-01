@@ -184,8 +184,20 @@
 (require 'auto-complete-config)
 (ac-config-default)
 
+;;Zone Mode Autostart --> This depends on external xtrlock package on Debian/Gnu linux system 
+;;Please install xtrlock using any of the pkg managers like apt-get , brew etc...
 
-
+(defun lock-screen ()
+	(message "Lock screen using (zone) and xtrlock 
+calls M-x zone on all frames and runs xtrlock"))
+	;;(interactive)
+	;;(save-excursion
+	;(shell-command "xtrlock &")
+		;;(set-process-sentinel
+		 ;;(start-process "xtrlock" nil "xtrlock")
+      ;;'(lambda (process event)
+        ;; (zone-leave-me-alone)))
+     ;(zone-when-idle 1)))
 
 
 ;;; This was installed by package-install.el.
@@ -197,16 +209,4 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
-
-
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
-
 
