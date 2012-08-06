@@ -179,26 +179,25 @@
 ;;https://github.com/m2ym/auto-complete.git
 ;;
 
-(add-to-list 'load-path "~/.emacs.d/auto-complete")
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-(require 'auto-complete-config)
-(ac-config-default)
+;;(add-to-list 'load-path "~/.emacs.d/auto-complete")
+;;(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
+;;(require 'auto-complete-config)
+;;(ac-config-default)
 
 ;;Zone Mode Autostart --> This depends on external xtrlock package on Debian/Gnu linux system 
 ;;Please install xtrlock using any of the pkg managers like apt-get , brew etc...
 
-(defun lock-screen ()
-	(message "Lock screen using (zone) and xtrlock 
-calls M-x zone on all frames and runs xtrlock"))
-	;;(interactive)
-	;;(save-excursion
-	;(shell-command "xtrlock &")
-		;;(set-process-sentinel
+;;(defun zone-lock ()
+;;	(message "Lock screen using (zone) and xtrlock 
+;;calls M-x zone on all frames and runs xtrlock")
+;;	(interactive)
+;;	(save-excursion
+	;;(shell-command "xtrlock &")
+	;;(set-process-sentinel
 		 ;;(start-process "xtrlock" nil "xtrlock")
-      ;;'(lambda (process event)
-        ;; (zone-leave-me-alone)))
-     ;(zone-when-idle 1)))
-
+		 ;;(lambda (process event)
+		 ;;	(zone-leave-me-alone)))
+;;	(zone 1)))
 
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and

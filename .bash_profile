@@ -1,3 +1,5 @@
+
+
 #Alias list by permissions
 alias l='ls -CF --color=auto'
 alias ls='ls --color=auto'
@@ -14,7 +16,7 @@ alias grm='git rm'
 alias gcm='git commit'
 alias gcl='git clone'
 alias gpl='git pull'
-alias gps='git push'
+#alias gps='git push'
 alias gil='git log'
 alias gst='git status'
 alias irb='irb --simple-prompt'
@@ -131,7 +133,7 @@ source $CUSTOM_SCRIPTS/includer.sh
 
 
 
-PS1="\[$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \$(git_tree) \[\$(printf '\033[0m')\] ↩\[\$(tput setaf 198)\] ™\[\$(tput setaf 220)\]➤ \[\$(printf '\033[0m')\]"
+PS1="\[$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] $(git_tree) \[\$(printf '\033[0m')\] ↩\[\$(tput setaf 198)\]™\[\$(tput setaf 220)\] ➤ \[\$(printf '\033[0m')\]"
 
 export JRUBY_OPTS=--1.8
 
