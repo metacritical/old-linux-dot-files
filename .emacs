@@ -159,8 +159,8 @@
 (setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css.less$" . css-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css$" . css-mode) auto-mode-alist))
-(add-to-list 'auto-mode-alist '(".js.coffee$" . coffee-mode))
-(add-to-list 'auto-mode-alist '("Cakefile" . coffee-mode))
+(setq auto-mode-list   (cons '(".js.coffee$" . coffee-mode) auto-mode-alist))
+(setq auto-mode-alist  (cons '("Cakefile" . coffee-mode) auto-mode-alist))
 
 
 ;;Tabbar-mode
@@ -208,4 +208,8 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
+
+;;Typing Of emacs
+(load "~/.emacs.d/typing.el")
+(autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
 
