@@ -2,9 +2,7 @@
 ;;Stallman wrote the first set of editor macros in 1976 for TECO which became emacs. Emacs has stood the test of time 
 ;;and is the most extensible editor known to man. Emacs was and still is ahead of its time, the editor with a built
 ;;in garbage collected language which could also produce native code and the entire editor could be extended and 
-;;build using the same language (elisp) an dialect of LISP.
-
-
+;;build using the same language (elisp) a dialect of LISP.
 
 ;; Interactively Do Things (highly recommended, but not strictly required)
 (require 'ido)
@@ -89,25 +87,17 @@
 ;;(load-file "~/.emacs.d/emac_themes/color-theme-railscasts.el")
 ;;(color-theme-railscasts)
 
-
-
-
 ;;Less CSS Major mode
 (load "~/.emacs.d/elpa/less-css-mode.el")
 (less-css-mode)
 
-
-
-
 ;;Dirtree pointing current directory
-;;
 
 (defun ep-dirtree ()
   (interactive)
   (dirtree-in-buffer eproject-root t))
 
 ;;Solarized Dark Theme
-;;
 
 ;;(add-to-list 'load-path "~/.emacs.d/emac_themes/emacs-color-theme-solarized/")
 ;;(require 'color-theme-solarized)
@@ -212,4 +202,3 @@
 ;;Typing Of emacs
 (load "~/.emacs.d/typing.el")
 (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
-
