@@ -1,4 +1,4 @@
-#!/usr/local/bin/casperjs
+//#!/usr/local/bin/casperjs
 
 //var omslogin = {
 //		run : function(){
@@ -22,14 +22,14 @@
 //				});
 
 
-var url = 'http://192.168.3.112/oms/login.aspx';
-var casper = require('casper').create();
-casper.start(url, function(){
-		console.log(this.getCurrentUrl());
-		var user_select = document.getElementsByClassName('ddl')[0][1].innerText;
-		console.log(user_select);
-		casper.exit();
-});
+//var url = 'http://192.168.3.112/oms/login.aspx';
+//var casper = require('casper').create();
+//casper.start(url, function(){
+//		console.log(this.getCurrentUrl());
+//		var user_select = document.getElementsByClassName('ddl')[0][1].innerText;
+//		console.log(user_select);
+//		casper.exit();
+//});
 
 
 
@@ -39,33 +39,6 @@ casper.run(function(){
 		casper.exit();
 });
 */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -106,6 +79,31 @@ casper.run(function(){
 //Users.setuser(user);
 //var selected_index = document.getElementsByClassName('ddl')[0].selectedIndex= select_user;
 
+var page = require('webpage').create();
+var system = require('system');
+
+page.open('http://192.168.3.112/oms',function(status){
+		var title = page.evaluate(function(){
+				return window.document.title;
+		});
+
+		
+		
+		var arg = function(){
+				if (system.args.length === 1){
+						return console.log("Please Pass some argument");
+				}
+				else{
+						return console.log(system.args[1])
+				}
+		}
+
+		console.log("Visited : " + title);
+		console.log('Aggument passed :', arg());
+		page.render('temp.png');
+		console.log("EXIT");
+		phantom.exit();
+});
 
 
-				
+		//page.open('http://192.168.3.112/oms/Default.aspx', function(status){console.log("hi page visited")});

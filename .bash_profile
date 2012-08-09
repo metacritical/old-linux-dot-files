@@ -1,5 +1,3 @@
-
-
 #Alias list by permissions
 alias l='ls -CF --color=auto'
 alias ls='ls --color=auto'
@@ -50,7 +48,7 @@ alias cd..='cd ../../'
 alias cd...='cd ../../../'
 alias cd....='cd ../../../../'
 alias junkemacs='emacs-snapshot-gtk -q -l ~/Softwares/emacs-starter-kit/init.el'
-alias emcs='emacs --daemon'
+alias emcs='emacs -nw --daemon'
 alias emcl='r3;emacsclient -nw'
 alias killemacs='emacsclient -e "(save-buffers-kill-emacs)"'
 alias _='sudo'
@@ -133,7 +131,7 @@ source $CUSTOM_SCRIPTS/includer.sh
 
 
 
-PS1="\[$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \$(git_tree) \[\$(printf '\033[0m')\] ↩\[\$(tput setaf 198)\]™\[\$(tput setaf 220)\] ➤ \[\$(printf '\033[0m')\]"
+PS1="\[\$(header_clock)\]\n\[\$(tput setaf 147)\]\n\w\n\[\$(tput setab 8)\]\[\$(tput setaf 7)\] \$(git_tree) \[\$(printf '\033[0m')\] ↩\[\$(tput setaf 198)\]™\[\$(tput setaf 220)\] ➤ \[\$(printf '\033[0m')\]"
 
 export JRUBY_OPTS=--1.8
 

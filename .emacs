@@ -4,12 +4,16 @@
 ;;in garbage collected language which could also produce native code and the entire editor could be extended and 
 ;;build using the same language (elisp) a dialect of LISP.
 
+;;Color Theme Package to be installed for everything else 
+(add-to-list 'load-path "~/.emacs.d/color-theme-6.6.0")
+(require 'color-theme)
+
 ;; Interactively Do Things (highly recommended, but not strictly required)
 (require 'ido)
    (ido-mode t)
      
 ;; Rinari
-(add-to-list 'load-path "~/.emacs.d/rinari")
+(add-to-list 'load-path "~/.emacs.d/rinari/")
    (require 'rinari)
 
 ;;; This was installed by package-install.el.
@@ -35,10 +39,6 @@
 (global-set-key [M-right] 'windmove-right)        ; move to right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
-
-;;Global Set font Monaco
-(set-face-attribute 'default nil :font "Monaco-11")
-
 
 ;;Dirtree plugin https://github.com/zkim/emacs-dirtree
 (require 'dirtree "dirtree" "Add directory to tree view")
@@ -202,3 +202,7 @@
 ;;Typing Of emacs
 (load "~/.emacs.d/typing.el")
 (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
+
+
+;;Auto Zoning in 50 seconds
+
