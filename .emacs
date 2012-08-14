@@ -203,6 +203,12 @@
 (load "~/.emacs.d/typing.el")
 (autoload 'typing-of-emacs "typing" "The Typing Of Emacs, a game." t)
 
+;;Edit With Emacs Server
+(load "~/.emacs.d/edit-server.el")
+(require 'edit-server)
+(edit-server-start)
+
+
 
 ;;Auto Zoning in 50 seconds
 
