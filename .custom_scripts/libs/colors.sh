@@ -1,4 +1,4 @@
-ESCAPE="\033"   #Beginning Escpae Sequence
+ESCAPE="\033"   #Beginning Escape Sequence
 RESET="[0"			#Reset All Attributes (return to normal mode)
 BOLDx="[1"			#Bright (Usually turns on BOLD)
 DIM="[2" 			  #Dim
@@ -79,3 +79,6 @@ FG=(
 		[APPLE_COLOR_LOGO]="$ESCAPE[3;38;5;198m"
 		[GREY_BACKGROUND]="$ESCAPE[40;5;198m"
 )
+
+
+
