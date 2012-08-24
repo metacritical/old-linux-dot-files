@@ -1,5 +1,8 @@
 #!/bin/bash
 
+#Unbind \C-s Stop Key
+stty stop undef
+
 declare -A KEY
 
 KEY=(
@@ -10,6 +13,13 @@ KEY=(
 
 #string="'\"\C-i\":\"begin\C-m\"'"
 
-key_string="\"${KEY[META]}i\":\"begin${KEY[ENTER]}\""
+begin_key="\"${KEY[META]}i\":\"begin${KEY[ENTER]}\""
+git_status="\"${KEY[CTRL]}-s\":\"gs${KEY[ENTER]}\""
 
-bind $key_string
+bind $begin_key
+bind $git_status
+
+
+# Road Map -- Use key-bind function to declare custom modifications in user custom custom_conf file.
+#KEY-BIND META i begin
+#KEY-BIND CTRL s git status
