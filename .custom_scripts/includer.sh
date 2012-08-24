@@ -14,3 +14,5 @@ source $BASH_UTILS/clock.sh
 #Color Utility Functions
 source $BASH_LIBS/colors.sh
 
+#Custom Key Binder Script
+source $BASH_LIBS/bind_key.sh

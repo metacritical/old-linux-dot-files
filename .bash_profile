@@ -92,7 +92,7 @@ alias opt='clear;source $HOME/.bash_profile'
 echo "$(tput setaf 7)$(tput setab 1)Select an app:$(tput sgr0)"
 tput setaf 3
 
-select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark
+select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark haskell
 do
 tput bold
   tput setaf 3
@@ -111,6 +111,7 @@ tput bold
 			spark) spark;;
       vim) vim;;
       sublime) st2;;
+			haskell) ghci;;
       bash) clear;break;;
   esac
 tput sgr0
@@ -127,8 +128,6 @@ export CUSTOM_SCRIPTS=$HOME/.custom_scripts
 
 #Bash Scripts Includer
 source $CUSTOM_SCRIPTS/includer.sh
-
-
 
 
 PS1="\[\$(tput setaf 147)\]\n\w\[\$(printf '\033[0m')\]\n\[\$(tput setab 8)\]\[\033[1;37m\] \$(git_tree) \[\$(printf '\033[0m')\]↩\[\$(tput setaf 198)\]™\[\$(tput setaf 220)\] ➤ \[\$(printf '\033[0m')\]"
