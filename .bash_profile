@@ -59,7 +59,7 @@ alias src='source ~/.bash_profile'
 alias rr='rake routes'
 alias spark='~/Softwares/Spark/spark&'
 alias tmux="TERM=screen-256color-bce tmux"
-
+alias server-connect="ssh root@192.168.3.150"
 alias begin='r3;emcs;cd ~/Development/its_onions3/onions'
 
 #Set Xterm to use 256 color
