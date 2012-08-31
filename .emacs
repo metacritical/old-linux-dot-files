@@ -141,11 +141,16 @@
 ;;Delete Selection mode C-d
 (delete-selection-mode t)
 
+;;Coffee Script Major Mode
+(add-to-list 'load-path "~/.emacs.d/coffee-mode")
+(require 'coffee-mode)
+
 ;;Enable Rinari mode by default
 ;;Major mode for editing embedded ruby scripts css and Gemfile.
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
 (setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
+(setq auto-mode-list   (cons '(".coffee.erb$" . coffee-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css.less$" . css-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css$" . css-mode) auto-mode-alist))
@@ -160,10 +165,6 @@
 
 ;;Tabbed switching with SHIFT-TAB <backtab>
 (global-set-key [backtab] 'tabbar-forward)
-
-;;Coffee Script Major Mode
-(add-to-list 'load-path "~/.emacs.d/coffee-mode")
-(require 'coffee-mode)
 
 ;;Autocomplete Mode 
 ;;https://github.com/m2ym/auto-complete.git
