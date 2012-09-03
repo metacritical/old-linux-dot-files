@@ -39,7 +39,7 @@ if `ls -a` =~ /.git/   #Dir.open('.').entries.include?('.git'), this is too long
     out_prompt << git_branch.to_s
   end
 else
-  out_prompt << "NO-VC"
+  out_prompt << "NO-VC 😸"
 end
 
 puts out_prompt.to_s # 
