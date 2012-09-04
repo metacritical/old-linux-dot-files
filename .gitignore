@@ -175,3 +175,5 @@ rvm-installer.bash
 hello.txt
 html.zip
 .#*
+.nvpy/
+.pip
