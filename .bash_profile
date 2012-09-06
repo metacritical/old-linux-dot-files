@@ -63,7 +63,7 @@ alias server-connect="ssh root@192.168.3.150"
 alias begin='r3;emcs;cd ~/Development/its_onions3/its_onions'
 
 #Set Xterm to use 256 color
-export TERM=xterm-256color
+export TERM=screen-256color
 
 #Setup Default Editor
 export EDITOR='emacsclient -nw'
@@ -85,7 +85,7 @@ PATH=$PATH:$HOME/.rvm/bin:/usr/local/cmucl-20c/bin/:~/Softwares/bitchx:~/Softwar
 #SCM Breeze
 [ -s "/home/pankaj/.scm_breeze/scm_breeze.sh" ] && . "/home/pankaj/.scm_breeze/scm_breeze.sh"
 
-#Sublime Alias`
+#Sublime Alias
 alias st2='$HOME/Softwares/Sublime\ Text\ 2/sublime_text &'
 alias opt='clear;source $HOME/.bash_profile'
 
