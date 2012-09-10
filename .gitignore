@@ -177,3 +177,5 @@ html.zip
 .#*
 .nvpy/
 .pip
+.wireshark/
+.x11vnc.log.PC88:5900
