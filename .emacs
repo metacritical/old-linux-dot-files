@@ -40,6 +40,13 @@
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
 
+
+;;Lets override backspace
+(global-set-key [?\C-h] 'delete-backward-char)
+(global-set-key [?\C-x ?h] 'help-command)
+
+
+
 ;;Dirtree plugin https://github.com/zkim/emacs-dirtree
 (require 'dirtree "dirtree" "Add directory to tree view")
 

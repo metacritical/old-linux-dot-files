@@ -92,11 +92,12 @@ alias opt='clear;source $HOME/.bash_profile'
 echo "$(tput setaf 7)$(tput setab 1)Select an app:$(tput sgr0)"
 tput setaf 3
 
-select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark haskell
+select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark haskell tmux
 do
 tput bold
   tput setaf 3
   case $i in
+			tmux) tmux;;
       irb) irb --simple-prompt;;
       emacs) emacs-snapshot-gtk;;
       rubinius) rvm use rbx;rbx;;
