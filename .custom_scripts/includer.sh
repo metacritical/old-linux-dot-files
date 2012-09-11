@@ -9,7 +9,7 @@ BASH_UTILS=$SCRIPT_ROOT/utils
 source $SCRIPT_ROOT/ansi_color
 
 #Include Clock
-source $BASH_UTILS/clock.sh
+#source $BASH_UTILS/clock.sh
 
 #Color Utility Functions
 source $BASH_LIBS/colors.sh

@@ -33,7 +33,12 @@
 (setq-default tab-width 2)
 
 ;;putty Arrow Keys
-;;
+
+
+;;Switch Menu bar mode off
+(menu-bar-mode -1)
+
+
 
 (global-set-key [M-left] 'windmove-left)          ; move to left windnow
 (global-set-key [M-right] 'windmove-right)        ; move to right window
