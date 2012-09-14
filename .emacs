@@ -50,6 +50,8 @@
 (global-set-key [?\C-h] 'delete-backward-char)
 (global-set-key [?\C-x ?h] 'help-command)
 
+;;Override C-x with caps
+
 
 
 ;;Dirtree plugin https://github.com/zkim/emacs-dirtree
@@ -226,3 +228,4 @@
 
 ;;Auto Zoning in 50 seconds
 
+(put 'set-goal-column 'disabled nil)
