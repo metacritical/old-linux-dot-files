@@ -67,6 +67,9 @@
 (load "~/.emacs.d/emac_themes/color-theme-molokai/color-theme-molokai.el")
 (color-theme-molokai)
 
+;;Color Theme select based on terminal or gui mode
+(load "~/.emacs.d/pankajs-molokai-modification-theme.el")
+
 
 ;;Pankajs Custom color theme
 ;;(require 'color-theme)
@@ -229,3 +232,15 @@
 ;;Auto Zoning in 50 seconds
 
 (put 'set-goal-column 'disabled nil)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("4c33573e9911278be5df7b0529e3d1e56056caa33f05d63247d718576cd33969" "d90d406b5301a2ae6b0c7f3a60f1d02e5ac9314de14de893a2644ccbf625b261" "60ff215642e31dd259dcf91777168b9bd10c04f54d34da75a42cebf7446ea813" "1857cf751da56ffeea35cf8d56511c890eef3d7184b3bfc22607d76bb2586587" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

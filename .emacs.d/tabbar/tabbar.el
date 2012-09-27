@@ -602,7 +602,7 @@ current cached copy."
   '((t
      :inherit tabbar-default
      :box (:line-width 1 :color "white" :style pressed-button)
-     :foreground "blue"
+     :foreground "#66D9EF"
      ))
   "Face used for the selected tab."
   :group 'tabbar)
