@@ -167,7 +167,7 @@
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
 (setq auto-mode-alist  (cons '(".rb$" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '("Gemfile" . ruby-mode) auto-mode-alist))
-(setq auto-mode-list   (cons '(".coffee.erb$" . coffee-mode) auto-mode-alist))
+(setq auto-mode-list   (cons '(".coffee.erb" . coffee-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".erb$" . html-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css.less$" . css-mode) auto-mode-alist))
 (setq auto-mode-alist  (cons '(".css$" . css-mode) auto-mode-alist))
