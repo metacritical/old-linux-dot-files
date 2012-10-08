@@ -162,6 +162,12 @@
 (add-to-list 'load-path "~/.emacs.d/coffee-mode")
 (require 'coffee-mode)
 
+;;Coffee Mode trailing White Space using whitespace-mode
+(setq whitespace-action '(auto-cleanup)) ;; automatically clean up bad whitespace
+(setq whitespace-style '(trailing space-before-tab indentation empty space-after-tab));; Only Show bad Whitespaces
+
+
+
 ;;Enable Rinari mode by default
 ;;Major mode for editing embedded ruby scripts css and Gemfile.
 (autoload 'ruby-mode "ruby-mode" "Major mode for editing ruby scripts." t)
