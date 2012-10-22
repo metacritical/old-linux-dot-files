@@ -94,7 +94,7 @@ alias opt='clear;source $HOME/.bash_profile'
 echo "$(tput setaf 7)$(tput setab 1)Select an app:$(tput sgr0)"
 tput setaf 3
 
-select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark haskell tmux
+select i in irb emacs rubinius node.js gnu-smalltalk cmucl bash clisp clojure opt vim sublime source bitchx spark haskell tmux io
 do
 tput bold
   tput setaf 3
@@ -107,6 +107,7 @@ tput bold
       gnu-smalltalk) gst;;
       cmucl) lisp;;
       clisp) clisp;;
+			io) io;;
       clojure) clojure;;
       opt) echo "Type opt when in bash for this menu.";;
       source) source $HOME/.bash_profile;;

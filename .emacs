@@ -182,12 +182,22 @@
 
 
 ;;Tabbar-mode
-(add-to-list 'load-path "~/.emacs.d/tabbar")
+(add-to-list 'load-path "~/.emacs.d/tabbar/")
 (require 'tabbar)
 (tabbar-mode)
 
 ;;Tabbed switching with SHIFT-TAB <backtab>
 (global-set-key [backtab] 'tabbar-forward)
+
+;;Skype Emacs
+(defun my-skype()
+	(add-to-list 'load-path "~/.emacs.d/emacs-skype/")
+	(require 'skype)
+	(setq skype--my-user-handle "pankaj.doharey@softwebsolutions.com")
+	(skype--init)
+	(interactive)
+)(my-skype)
+
 
 ;;Autocomplete Mode 
 ;;https://github.com/m2ym/auto-complete.git

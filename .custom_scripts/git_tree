@@ -7,7 +7,7 @@
 #puts %x[git branch].find{|i| i.match(/^\*/)}
 
 out_prompt ||= []
-if `ls -a` =~ /.git/   #Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7
+if `ls -a` =~ /[.git]/   #Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7
   git_status = %x['git' 'status']
   #x['rvm use ruby-1.9.2-p290@onions']
   
