@@ -6,40 +6,45 @@
 #%x['/bin/bash' '/home/pankaj/.bash_profile']
 #puts %x[git branch].find{|i| i.match(/^\*/)}
 
-out_prompt ||= []
-if `ls -a` =~ /[.git]/   #Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7
-  git_status = %x['git' 'status']
-  #x['rvm use ruby-1.9.2-p290@onions']
-  
-  if git_status =~ /working directory clean/
-    #puts "☘"
-    #puts "☻"
-    if git_status =~ /branch is ahead/
-      out_prompt << "\e[1;41m😸 " #+ "{git_status.to_a[1].split(/*..commits/)}"
+SYMBOL = 
+  { 
+    :tiger  => "😸 " , :yinyang => "☯" , :recycle => "♻" , :hazard => "☢" , :sun     => "☀" ,
+    :smiley => "☻"  , :flag    => "⚑" , :trust   => "♺" , :sword  => "⚔" , :parsley => "☘" 
+  }
+
+#GIT Status
+GIT_STATUS = %x['git' 'status']
+
+#GIT Branch
+GIT_BRANCH = %x[git branch].match(/^\*.\w+/) || "NO-VC"
+
+prompt ||= []
+
+# Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7 / (`ls -a` =~ /[.git]/)   
+if Dir.open('.').entries.include?('.git')
+  # x['rvm use ruby-1.9.2-p290@onions']
+  if GIT_STATUS =~ /working directory clean/
+    if GIT_STATUS =~ /branch is ahead/
+      prompt << "\e[1;41m#{SYMBOL[:tiger]}" #+ "{git_status.to_a[1].split(/*..commits/)}"
     else
-      out_prompt << "☯"
+      prompt << SYMBOL[:yinyang]
     end
     
-    #puts "⚑"
-  elsif git_status =~ /Changes to be committed/
-    out_prompt << "♻"
-    #puts "♺"
-  elsif git_status =~ /Changes not staged for commit:/ 
-    out_prompt << "☢"
-    #puts "⚔"
-  elsif git_status =~ /Untracked files/
-    out_prompt << "☀"
+  elsif GIT_STATUS =~ /Changes to be committed/
+    prompt << SYMBOL[:recycle]
+  elsif GIT_STATUS =~ /Changes not staged for commit:/ 
+    prompt << SYMBOL[:hazard]
+  elsif GIT_STATUS =~ /Untracked files/
+    prompt << SYMBOL[:sun]
   end
   
   
-  #GIT Branch
-  git_branch = %x[git branch].match(/^\*.\w+/) || "NO-VC"
   
-  if git_branch != ""
-    out_prompt << git_branch.to_s
+  if GIT_BRANCH != ""
+    prompt << GIT_BRANCH.to_s
   end
 else
-  out_prompt << "NO-VC"
+  prompt << "NO-VC"
 end
 
-puts out_prompt.to_s # 
+puts prompt.to_s
