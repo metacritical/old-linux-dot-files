@@ -12,20 +12,13 @@ SYMBOL =
     :smiley => "☻"  , :flag    => "⚑" , :trust   => "♺" , :sword  => "⚔" , :parsley => "☘" 
   }
 
-#GIT Status
-if Dir.open('.').entries.include?('.git') && %x[git status] =~ /Not a git repository (or any of the parent directories)/
+#GIT Status && #GIT Branch
+begin
+  GIT_STATUS = %x[git status 2> /dev/null]
+  GIT_BRANCH = %x[git branch 2> /dev/null].match(/^\*.\w+/)
+rescue
   GIT_STATUS = ""
-else
-  GIT_STATUS = %x[git status]
-end
-
-#unless 
-
-#GIT Branch
-if %x[git branch] =~ /Not a git repository (or any of the parent directories)/
   GIT_BRANCH = "NO-VC"
-else
-  GIT_BRANCH = %x[git branch].match(/^\*.\w+/)
 end
 
 #Out Prompt
@@ -33,7 +26,6 @@ prompt ||= []
 
 # Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7 / (`ls -a` =~ /[.git]/)   
 if Dir.open('.').entries.include?('.git')
-  # x['rvm use ruby-1.9.2-p290@onions']
   if GIT_STATUS =~ /working directory clean/
     if GIT_STATUS =~ /branch is ahead/
       prompt << "\e[1;41m#{SYMBOL[:tiger]}" #+ "{git_status.to_a[1].split(/*..commits/)}"
