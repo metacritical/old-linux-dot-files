@@ -1,0 +1,62 @@
+#!/usr/local/bin/phantomjs
+
+var page = require('webpage').create();
+var system = require('system');
+
+//Inject JQuery
+page.injectJs('jquery-1.7.2.min.js');
+
+page.open('http://192.168.3.112/oms',function(status){
+		var webpage = 
+
+		{
+				'title' : page.evaluate(
+						function(){
+								return document.title;
+						}),
+				
+
+
+				'username_value' : page.evaluate(
+						function(){
+								var username = "pankaj.doharey@softwebsolutions.com";
+								var selector = document.querySelector('select')
+								
+								var search_email = function(){
+										for(var index = 1; index < selector.length; index++){
+												if(selector[index].innerText == username){
+														return selector[index].value;
+												}
+										}
+								}
+								return search_email();
+						}),
+
+				'login' : function()
+				{
+						if (system.args.length === 1){
+								return "Please Pass some argument";
+						}
+						else{
+								return system.args[1];
+						}
+				},				
+		}
+		
+		console.log("Visited =>" , webpage['title']);
+		console.log("Username and value =>" , webpage['username_value']);
+		console.log("Webpage Login =>" , webpage['login']());
+		
+		page.evaluate(function(){
+				window.document.querySelector('select''.selected = document.querySelector('select''.value = 423))
+		}
+		
+		//		console.login('Login Argument =>' , webpage['login']);
+		page.render('proof.png');
+		//					console.log("PHANTOM EXIT");
+		phantom.exit();
+});
+
+
+//window.document.querySelector('select''.selected = document.querySelector('select''.value = 423))
+//lex2rock@gmail.com

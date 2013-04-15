@@ -1,0 +1,10 @@
+;;;; Emacs Bookmark Format Version 1 ;;;;
+;;; This format is meant to be slightly human-readable;
+;;; nevertheless, you probably don't want to edit it.
+;;; -*- End Of Bookmark File Format Version Stamp -*-
+(("index.html.erb"
+ (filename . "~/Development/its_onions3/its_onions/app/views/movies/index.html.erb")
+ (front-context-string . "                ")
+ (rear-context-string . "=\"clear\"></div>\n")
+ (position . 1271))
+)

@@ -1,0 +1,8 @@
+#!/usr/bin/ruby
+
+git_branch = %x[git branch].find{|i| i.match(/^\*/)}.to_s.chomp
+
+if git_branch != ""
+  puts git_branch
+end
+

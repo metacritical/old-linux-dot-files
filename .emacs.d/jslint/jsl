@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ "$RHINOJS" ]
+then
+    pushd $(dirname "$0") > /dev/null
+    java -cp "$RHINOJS" org.mozilla.javascript.tools.shell.Main  \
+         "jslint-rhino.js"  \
+         --jslint "JSLint/jslint.js"  \
+         "$@"
+    popd
+else
+    echo RHINOJS not set
+fi

@@ -1,0 +1,59 @@
+#!/usr/bin/ruby
+# -*- coding: utf-8 -*-
+
+#require 'termcolor'
+#system('/bin/bash ~/.bash_profile')
+#%x['/bin/bash' '/home/pankaj/.bash_profile']
+#puts %x[git branch].find{|i| i.match(/^\*/)}
+
+SYMBOL = 
+  { 
+    :tiger  => "😸 " , :yinyang => "☯" , :recycle => "♻" , :hazard => "☢" , :sun     => "☀" ,
+    :smiley => "☻"  , :flag    => "⚑" , :trust   => "♺" , :sword  => "⚔" , :parsley => "☘" 
+  }
+
+#GIT Status
+if Dir.open('.').entries.include?('.git') && %x[git status] =~ /Not a git repository (or any of the parent directories)/
+  GIT_STATUS = ""
+else
+  GIT_STATUS = %x[git status]
+end
+
+#unless 
+
+#GIT Branch
+if %x[git branch] =~ /Not a git repository (or any of the parent directories)/
+  GIT_BRANCH = "NO-VC"
+else
+  GIT_BRANCH = %x[git branch].match(/^\*.\w+/)
+end
+
+#Out Prompt
+prompt ||= []
+
+# Dir.open('.').entries.include?('.git'), this is too long and Dir.exists? not present ruby 1.8.7 / (`ls -a` =~ /[.git]/)   
+if Dir.open('.').entries.include?('.git')
+  # x['rvm use ruby-1.9.2-p290@onions']
+  if GIT_STATUS =~ /working directory clean/
+    if GIT_STATUS =~ /branch is ahead/
+      prompt << "\e[1;41m#{SYMBOL[:tiger]}" #+ "{git_status.to_a[1].split(/*..commits/)}"
+    else
+      prompt << SYMBOL[:yinyang]
+    end
+    
+  elsif GIT_STATUS =~ /Changes to be committed/
+    prompt << SYMBOL[:recycle]
+  elsif GIT_STATUS =~ /Changes not staged for commit:/ 
+    prompt << SYMBOL[:hazard]
+  elsif GIT_STATUS =~ /Untracked files/
+    prompt << SYMBOL[:sun]
+  end
+  
+  if GIT_BRANCH != ""
+    prompt << GIT_BRANCH.to_s
+  end
+else
+  prompt << "NO-VC"
+end
+
+puts prompt.to_s

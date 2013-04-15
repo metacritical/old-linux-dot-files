@@ -1,0 +1,8 @@
+#!/bin/bash
+
+for(( ; ; ))
+do 
+		echo $(date +%c);
+		sleep 1; 
+done
+#loop {puts Time.now;sleep 1;}
