@@ -71,7 +71,7 @@ alias begin='r3;emcs;cd ~/Development/med2_compared/med2_nextgen'
 alias langdev='rvm use ruby-1.9.3-p362@langdev'
 alias swapps='rvm use 1.9.2@swapps'
 alias spree='rvm use ruby-1.9.2-p320@spree'
-
+alias lia='list_aliases' #Alias to list aliases lol.
 #Set Xterm to use 256 color
 export TERM=screen-256color
 

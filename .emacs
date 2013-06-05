@@ -47,14 +47,17 @@
       "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-
+;;jabber libnotify
+(when
+    (load
+     (expand-file-name  "~/.emacs.d/jabber-libnotify.el")))
 
 ;;Global TAB-Width
 (setq-default tab-width 2)
 
 ;;putty Arrow Keys
 (global-set-key [M-left] 'windmove-left)          ; move to left windnow
-(global-set-key [M-right] 'windmove-right)        ; move to right window
+(global-set-key [M-right] 'windmove-right)        ; move ton right window
 (global-set-key [M-up] 'windmove-up)              ; move to upper window
 (global-set-key [M-down] 'windmove-down)          ; move to downer window
 
@@ -106,10 +109,15 @@
 ;;(color-theme-black)
 
 ;;Rails Casts Colortheme
-(require 'color-theme)
+;;(require 'color-theme)
 (color-theme-initialize)
 (load-file "~/.emacs.d/emac_themes/color-theme-railscasts.el")
 (color-theme-railscasts)
+
+;;Color Theme TTY Dark
+;;(require 'color-theme)
+;;(color-theme-initialize)
+;;(color-theme-tty-dark)
 
 ;;Less CSS Major mode
 (load "~/.emacs.d/elpa/less-css-mode.el")
@@ -278,6 +286,22 @@
 (global-set-key "\C-cl" 'org-store-link)
 (global-set-key "\C-ca" 'org-agenda)
 (global-set-key "\C-cb" 'org-iswitchb)
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . nil)
+	 (ruby . t)))
+
+
+;;Syntax highlighting with org mode code blocks
+(setq org-src-fontify-natively t)
+
+
+
+;;Racc Mode El
+(load "~/.emacs.d/racc-mode.el")
+(autoload 'racc-mode "racc-mode" "alternate mode for editing racc files" t)
+(setq auto-mode-alist (append '(("\\.ry$" . racc-mode)) auto-mode-alist))
 
 
 
