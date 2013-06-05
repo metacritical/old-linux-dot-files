@@ -1,0 +1,11 @@
+#!/bin/bash
+echo "Status? (Valid Options are available,away,unavailable,invisible, and offline):"
+read status
+case $status in
+"available") purple-remote setstatus?status=available;echo "Message?:";read message;purple-remote setstatus?message="$message";;
+"away") purple-remote setstatus?status=away;echo "Message?:";read message;purple-remote setstatus?message="$message";;
+"unavailable") purple-remote setstatus?status=unavailable;echo "Message?:";read message;purple-remote setstatus?message="$message";;
+"invisible") purple-remote setstatus?status=invisible;echo "Message?:";read message;purple-remote setstatus?message="$message";;
+"offline") purple-remote setstatus?status=offline;echo "Message?:";read message;purple-remote setstatus?message="$message";;
+*) echo "Invalid Status.  Please Try Again.";;
+esac

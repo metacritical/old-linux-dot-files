@@ -1,0 +1,8 @@
+ls
+src
+source ~/,bash_profile
+source ~/.bash_profile
+ls
+cd ..
+vim
+source ~/.bash_profile
