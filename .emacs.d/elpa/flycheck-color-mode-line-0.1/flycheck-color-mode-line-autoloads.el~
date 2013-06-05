@@ -1,0 +1,13 @@
+;;; flycheck-color-mode-line-autoloads.el --- automatically extracted autoloads
+;;
+;;; Code:
+
+
+(provide 'flycheck-color-mode-line-autoloads)
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; no-update-autoloads: t
+;; coding: utf-8
+;; End:
+;;; flycheck-color-mode-line-autoloads.el ends here

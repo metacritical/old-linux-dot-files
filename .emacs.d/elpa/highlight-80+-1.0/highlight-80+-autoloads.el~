@@ -1,0 +1,13 @@
+;;; highlight-80+-autoloads.el --- automatically extracted autoloads
+;;
+;;; Code:
+
+
+(provide 'highlight-80+-autoloads)
+;; Local Variables:
+;; version-control: never
+;; no-byte-compile: t
+;; no-update-autoloads: t
+;; coding: utf-8
+;; End:
+;;; highlight-80+-autoloads.el ends here

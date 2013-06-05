@@ -1,0 +1,2172 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)https://bugs.launchpad.net/ubuntuone-servers/+bug/396725 -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr" class="yui3-js-enabled"><div id="yui3-css-stamp" style="position: absolute !important; visibility: hidden !important" class=""></div><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script charset="utf-8" id="yui_3_9_1_1_1369308969016_2" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource" async=""></script><script charset="utf-8" id="yui_3_9_1_1_1369308969016_3" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource(1)" async=""></script><script charset="utf-8" id="yui_3_9_1_1_1369308969016_4" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource(2)" async=""></script><script charset="utf-8" id="yui_3_9_1_1_1369308969016_45" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource(3)" async=""></script><script charset="utf-8" id="yui_3_9_1_1_1369308969016_49" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource(4)" async=""></script><!--<base href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+index">--><base href=".">
+
+    <meta charset="UTF-8">
+    <title>Bug #396725 “Needs WebDAV support” : Bugs : Ubuntu One Servers</title>
+    <link rel="shortcut icon" href="https://bugs.launchpad.net/@@/launchpad.png">
+    <link rel="canonical" href="https://bugs.launchpad.net/bugs/396725">
+    
+      <link rel="alternate" type="application/atom+xml" href="http://feeds.launchpad.net/bugs/396725/bug.atom" title="Bug 396725 Feed">
+    
+
+    
+  
+  <link type="text/css" rel="stylesheet" media="screen, print" href="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/combo.css">
+
+
+    
+
+    
+      <meta name="description" content="Pretty much anything I could use this for (particularly Zotero) requires WebDAV. This is a bit of a walled garden at the moment.">
+    
+
+    
+  
+
+  
+  
+  <script type="text/javascript">
+    var LP = {
+        cache: {},
+        links: {}
+    };
+  </script>
+
+  
+
+  <script type="text/javascript">var cookie_scope = '; Path=/; Secure; Domain=.launchpad.net';</script>
+
+   <script type="text/javascript" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/saved_resource(5)"></script>
+   <script type="text/javascript">
+        var raw = null;
+        if (LP.devmode) {
+           raw = 'raw';
+        }
+        YUI.GlobalConfig = {
+            combine: true,
+            comboBase: '/+combo/rev16640/?',
+            root: 'yui-3.9.1/',
+            filter: raw,
+            debug: false,
+            fetchCSS: false,
+            maxURLLength: 2000,
+            groups: {
+                lp: {
+                    combine: true,
+                    base: '/+combo/rev16640/?lp/',
+                    comboBase: '/+combo/rev16640/?',
+                    root: 'lp/',
+                    // comes from including lp/meta.js
+                    modules: LP_MODULES,
+                    fetchCSS: false
+                }
+            }
+        }</script>
+
+  <script type="text/javascript">
+      // we need this to create a single YUI instance all events and code
+      // talks across. All instances of YUI().use should be based off of
+      // LPJS instead.
+      LPJS = new YUI();
+  </script>
+
+
+
+    <script id="base-layout-load-scripts" type="text/javascript">
+        //<![CDATA[
+        LPJS.use('base', 'node', 'console', 'event',
+            'oop', 'lp', 'lp.app.foldables','lp.app.sorttable',
+            'lp.app.inlinehelp', 'lp.app.links', 'lp.app.longpoll',
+            'lp.bugs.bugtask_index', 'lp.bugs.subscribers',
+            'lp.app.ellipsis', 'lp.code.branchmergeproposal.diff',
+            'lp.views.global',
+             function(Y) {
+
+            Y.on("domready", function () {
+                var global_view = new Y.lp.views.Global();
+                global_view.render();
+
+                Y.lp.app.sorttable.SortTable.init();
+                Y.lp.app.inlinehelp.init_help();
+                Y.lp.activate_collapsibles();
+                Y.lp.app.foldables.activate();
+                Y.lp.app.links.check_valid_lp_links();
+                // Longpolling will only start if
+                // LP.cache.longpoll is populated.
+                // We use Y.later to work around a Safari/Chrome 'feature':
+                // The mouse cursor stays 'busy' until all the requests started during
+                // page load are finished.  Hence we want the long poll request to start
+                // right *after* the page has loaded.
+                Y.later(0, Y.lp.app.longpoll, Y.lp.app.longpoll.setupLongPollManager);
+
+            });
+
+            Y.on('lp:context:web_link:changed', function(e) {
+                  window.location = e.new_value;
+            });
+        });
+        //]]>
+    </script>
+    <script id="base-helper-functions" type="text/javascript">
+         //<![CDATA[
+        // This code is pulled from lp.js that needs to be available on every
+        // request. Pulling here to get it outside the scope of the YUI block.
+        function setFocusByName(name) {
+            // Focus the first element matching the given name which can be focused.
+            var nodes = document.getElementsByName(name);
+            var i, node;
+            for (i = 0; i < nodes.length; i++) {
+                node = nodes[i];
+                if (node.focus) {
+                    try {
+                        // Trying to focus a hidden element throws an error in IE8.
+                        if (node.offsetHeight !== 0) {
+                            node.focus();
+                        }
+                    } catch (e) {
+                        LPJS.use('console', function(Y) {
+                            Y.log('In setFocusByName(<' +
+                                node.tagName + ' type=' + node.type + '>): ' + e);
+                        });
+                    }
+                    break;
+                }
+            }
+        }
+
+        function selectWidget(widget_name, event) {
+          if (event && (event.keyCode === 9 || event.keyCode === 13)) {
+              // Avoid firing if user is tabbing through or simply pressing
+              // enter to submit the form.
+              return;
+          }
+          document.getElementById(widget_name).checked = true;
+        }
+        //]]>
+    </script>
+
+    
+      
+      <script type="text/javascript" id="available-official-tags-js">var available_official_tags = ["canonical-webops-u1", "chicharra", "contacts", "couchdb", "desktop+", "foundations+", "frontend", "notes", "ops+", "u1-lucid-sru", "u1-maverick", "u1-maverick-sru", "u1-natty", "webui"];</script>
+      <script type="text/javascript">
+        LPJS.use('base', 'node', 'oop', 'event', 'lp.bugs.bugtask_index',
+                  'lp.bugs.subscribers', 'lp.code.branchmergeproposal.diff',
+                  'lp.app.comment', function(Y) {
+            Y.on('domready', function() {
+                Y.lp.code.branchmergeproposal.diff.connect_diff_links();
+                Y.lp.bugs.bugtask_index.setup_bugtask_index();
+                Y.lp.bugs.bugtask_index.setup_bugtask_table();
+                LP.cache.comment_context = LP.cache.bug;
+                var cl = new Y.lp.app.comment.CommentList();
+                cl.render();
+                var sl = new Y.lp.bugs.subscribers.createBugSubscribersLoader({
+                    container_box: '#other-bug-subscribers',
+                    subscribers_details_view:
+                        '/+bug-portlet-subscribers-details',
+                    subscribe_someone_else_link: '.menu-link-addsubscriber'
+                }, window);
+            });
+         });
+      </script>
+      <style type="text/css">
+        /* Align the 'add comment' link to the right of the comment box. */
+        #add-comment-form textarea { width: 100%; }
+        #add-comment-form { max-width: 60em; padding-bottom: 4em; }
+        #add-comment-form .actions {float: right;}
+        .bug-branch-summary dd { font-size: 10px; }
+        a#privacy-link:link:hover, a#privacy-link:visited:hover {text-decoration:none;}
+      </style>
+      <style type="text/css">
+        .yui3-overlay .value label  {
+          /* It normally makes sense for form labels to be bold, but since
+          this form consists only of radio buttons, there's nothing but labels
+          so we just get wall-to-wall bold. */
+          font-weight: normal !important;
+        }
+      </style>
+    
+    
+  </head>
+
+  <body id="document" itemscope="" itemtype="http://schema.org/WebPage" class="tab-bugs
+      main_side
+      public
+      yui3-skin-sam"><div id="yui_3_9_1_1_1369308969016_102" class="yui3-widget yui3-commentlist" style=""><div id="yui_3_9_1_1_1369308969016_104" class="yui3-commentlist-content"></div></div>
+          
+          
+        <script type="text/javascript">
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-12833497-1']);
+          _gaq.push(['_setDomainName', '.launchpad.net']);
+          _gaq.push(['_setAllowHash', false]);
+          _gaq.push(['_trackPageview']);
+        </script>
+        <script type="text/javascript" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/ga.js"></script>
+    <div class="yui-d0" id="yui_3_9_1_1_1369308969016_347">
+      <div id="locationbar" class="login-logout">
+        
+
+<div id="logincontrol"><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+login">Log in / Register</a></div>
+
+
+
+      </div><!--id="locationbar"-->
+
+      <div id="watermark" class="watermark-apps-portlet">
+        <div>
+          <a href="https://launchpad.net/ubuntuone-servers"><img alt="" width="64" height="64" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/ubuntuone-64.png"></a>
+        </div>
+        <div class="wide">
+          <h2>Ubuntu One Servers</h2>
+          
+  <!-- Application Menu -->
+  <ul class="facetmenu">
+    
+      
+      <li class="overview" title="General information about Ubuntu One Servers"><a href="https://launchpad.net/ubuntuone-servers">Overview</a></li>
+      
+    
+    
+      
+      <li class="branches" title="Branches for Ubuntu One Servers"><a href="https://code.launchpad.net/ubuntuone-servers">Code</a></li>
+      
+    
+    
+      <li class="bugs active" title="Bugs reported about Ubuntu One Servers"><a href="https://bugs.launchpad.net/ubuntuone-servers">Bugs</a></li>
+      
+      
+    
+    
+      
+      <li class="specifications" title="Feature specifications for Ubuntu One Servers"><a href="https://blueprints.launchpad.net/ubuntuone-servers">Blueprints</a></li>
+      
+    
+    
+      
+      <li class="translations" title="Translations of Ubuntu One Servers in Launchpad"><a href="https://translations.launchpad.net/ubuntuone-servers">Translations</a></li>
+      
+    
+    
+      
+      <li class="answers" title="Questions for Ubuntu One Servers"><a href="https://answers.launchpad.net/ubuntuone-servers">Answers</a></li>
+      
+    
+  </ul>
+
+        </div>
+      </div>
+
+      <div class="yui-t4" id="yui_3_9_1_1_1369308969016_346">
+        <div id="maincontent" class="yui-main">
+          <div class="yui-b" dir="ltr" id="yui_3_9_1_1_1369308969016_345">
+            <div class="context-publication">
+              
+      <h1 id="edit-title">
+<span style="max-width: 95%;" class="yui3-editable_text-text ellipsis">
+    Needs WebDAV support
+</span>
+  
+</h1>
+
+
+
+    
+              <ol itemprop="breadcrumb" class="breadcrumbs">
+
+
+  <li>
+    <a href="https://launchpad.net/ubuntuone-servers">Ubuntu One Servers</a>
+  </li>
+
+
+  <li>
+    <a href="https://bugs.launchpad.net/ubuntuone-servers">Bugs</a>
+  </li>
+
+
+  <li>
+    Bug #396725
+  </li>
+
+</ol>
+
+              <div id="registration" class="registering">
+                
+      Reported by
+      <a href="https://launchpad.net/~secretlondon" class="sprite person">Caroline Ford</a>
+      <span title="2009-07-07 19:43:30 UTC">on 2009-07-07</span>
+    
+              </div>
+            </div>
+
+            
+            <div id="request-notifications">
+              
+            </div>
+
+            
+              <div id="yui_3_9_1_1_1369308969016_344">
+
+      
+
+      <div id="bug-is-duplicate">
+          
+      </div>
+      
+
+      <div style="float: right;">
+        <span><a href="https://bugs.launchpad.net/+help-bugs/bug-heat.html" target="help" class="sprite flame help">244</a></span>
+      </div>
+
+      
+
+
+  
+  
+    <div class="actions">
+      <span id="affectsmetoo" style="display: inline">This bug affects 47 people</span>
+    </div>
+  
+
+
+
+    <table id="affected-software" class="listing">
+      <thead>
+        <tr>
+          <th colspan="2">Affects</th>
+          <th>Status</th>
+          <th>Importance</th>
+          <th>Assigned to</th>
+          <th>Milestone</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        
+          
+  <tr class="highlight" id="tasksummary465355">
+    <td>
+      <a class="bugtask-expander treeCollapsed sprite" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+editstatus" style="cursor: pointer;">
+        ​
+      </a>
+    </td>
+    
+    <td>
+      <span id="bugtarget-picker-tasksummary465355">
+        <span class="yui3-activator-data-box">
+            <a href="https://bugs.launchpad.net/ubuntuone-servers" class="sprite product">Ubuntu One Servers</a>
+        </span>
+        <button class="lazr-btn yui3-activator-act yui3-activator-hidden">
+          Edit
+        </button>
+        <div class="yui3-activator-message-box yui3-activator-hidden"></div>
+        
+      </span>
+    </td>
+
+    
+
+    
+    <td style="width: 20%; vertical-align: middle">
+      <div class="status-content" style="width: 100%; float: left">
+        
+        
+          <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+editstatus" style="float: left" class="value statusTRIAGED">Triaged</a>
+          <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+editstatus" style="margin-left: 3px">
+            <img class="editicon" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/edit">
+          </a>
+        
+      </div>
+    </td>
+
+    
+    <td style="width: 15em; vertical-align: middle">
+      <div class="importance-content" style="width: 100%; float: left">
+        <span style="float: left" class="value importanceWISHLIST">Wishlist</span>
+      </div>
+    </td>
+
+    <td style="width:20%; margin: 0; padding: 0;
+               vertical-align: middle; padding-left: 0.5em">
+      
+
+      
+        <span id="assignee-picker-tasksummary465355">
+          <span class="yui3-activator-data-box">
+            
+            
+              Unassigned
+            
+          </span>
+          
+          <button class="lazr-btn yui3-activator-act yui3-activator-hidden">
+            Edit
+          </button>
+          <div class="yui3-activator-message-box yui3-activator-hidden"></div>
+        </span>
+      
+    </td>
+
+    <td style="width: 20%; vertical-align: middle">
+      
+    </td>
+
+    
+  </tr>
+
+  
+    <tr class="bugtask-collapsible-content hidden" id="task465355">
+     <td colspan="7"><form action="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+editstatus" method="post" enctype="multipart/form-data" class="lazr-closed" style="height: 0px; overflow: hidden;">
+  
+
+  <p class="error message">
+    You need to log in to change this bug's status.
+  </p>
+  
+  <table class="summary" style="float: right; margin-left: 1em;">
+    <tbody><tr>
+      <th>Affecting:</th>
+      <td><a href="https://bugs.launchpad.net/ubuntuone-servers">Ubuntu One Servers</a></td>
+    </tr>
+    <tr>
+      <th>Filed here by:</th>
+      <td><a href="https://launchpad.net/~secretlondon" class="sprite person">Caroline Ford</a></td>
+    </tr>
+    <tr>
+      <th>When:</th>
+      <td>
+        <span title="2009-07-07 19:43:30 UTC">2009-07-07</span>
+      </td>
+    </tr>
+    <tr>
+      <th>Confirmed:</th>
+      <td>
+        <span title="2011-05-21 10:33:23 UTC">2011-05-21</span>
+      </td>
+    </tr>
+    
+    
+    
+  </tbody></table>
+  <div class="field">
+    <table>
+      <tbody><tr>
+        <td>
+          <label for="ubuntuone-servers.target">Target</label>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table>
+  <tbody><tr>
+    <td>
+      <label>
+        <input class="radioType" id="ubuntuone-servers.target.option.package" name="ubuntuone-servers.target" type="radio" value="package">
+        Distribution
+      </label>
+    </td>
+    <td>
+      <select id="ubuntuone-servers.target.distribution" name="ubuntuone-servers.target.distribution" size="1">
+<option value="baltix">Baltix GNU/Linux</option>
+<option value="boss">BOSS: Bharat Operating System Solutions</option>
+<option value="charms">Juju Charms</option>
+<option value="elbuntu">Elbuntu</option>
+<option value="guadalinex">Guadalinex</option>
+<option value="guadalinexedu">Guadalinex Edu</option>
+<option value="kiwilinux">Kiwi Linux</option>
+<option value="nubuntu">nUbuntu - Network Ubuntu</option>
+<option value="pld-linux">PLD Linux Distribution</option>
+<option value="tilix">Tilix Linux</option>
+<option value="tuxlab">tuXlab</option>
+<option selected="selected" value="ubuntu">Ubuntu</option>
+<option value="ubuntu-leb">Ubuntu Linaro Evaluation Build</option>
+</select>
+<input name="ubuntuone-servers.target.distribution-empty-marker" type="hidden" value="1">
+    </td>
+  </tr>
+  <tr>
+    <td align="right">
+      <label for="ubuntuone-servers.target.option.package">
+        Package
+      </label>
+    </td>
+    <td>
+      
+
+
+    <input type="text" value="" id="ubuntuone-servers.target.package" name="ubuntuone-servers.target.package" size="20" maxlength="" onkeypress="selectWidget(&#39;ubuntuone-servers.target.option.package&#39;, event)" style="" class="">
+
+    
+      
+      <script type="text/javascript">
+          LPJS.use('node', 'lp.app.picker', function(Y) {
+              var text_input = Y.DOM.byId('ubuntuone-servers.target.package');
+              var select_menu = Y.DOM.byId('ubuntuone-servers.target.package-suggestions');
+              Y.lp.app.picker.connect_select_menu(
+                  select_menu, text_input);
+          });</script>
+    
+
+    <span class=""><span id="yui_3_9_1_1_1369308969016_143">(<a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+index#" id="show-widget-ubuntuone-servers-target-package" class="js-action">Choose…</a>)</span></span>
+    <script>
+    LPJS.use('node', 'lp.app.picker', function(Y) {
+        var config = {"show_remove_button": false, "show_assign_me_button": false, "assign_me_text": "Pick me", "remove_person_text": "Remove person", "header": "Select a Package", "selected_value_metadata": null, "vocabulary_name": "BinaryAndSourcePackageName", "show_widget_id": "show-widget-ubuntuone-servers-target-package", "selected_value": null, "input_element": "ubuntuone-servers.target.package", "remove_team_text": "Remove team", "extra_no_results_message": null, "vocabulary_filters": [], "show_create_team": false, "picker_type": "default", "step_title": "Search"};
+        var show_widget_id = 'show-widget-ubuntuone-servers-target-package';
+        Y.on('domready', function(e) {
+            Y.lp.app.picker.addPicker(config, show_widget_id);
+        });
+    });
+    </script>
+  
+
+
+
+    </td>
+  </tr>
+
+  <tr>
+    <td>
+      <label>
+        <input class="radioType" checked="checked" id="ubuntuone-servers.target.option.product" name="ubuntuone-servers.target" type="radio" value="product">
+       Project 
+      </label>
+    </td>
+    <td>
+      
+
+
+    <input type="text" value="ubuntuone-servers" id="ubuntuone-servers.target.product" name="ubuntuone-servers.target.product" size="20" maxlength="" onkeypress="selectWidget(&#39;ubuntuone-servers.target.option.product&#39;, event)" style="" class="">
+
+    
+      
+      <script type="text/javascript">
+          LPJS.use('node', 'lp.app.picker', function(Y) {
+              var text_input = Y.DOM.byId('ubuntuone-servers.target.product');
+              var select_menu = Y.DOM.byId('ubuntuone-servers.target.product-suggestions');
+              Y.lp.app.picker.connect_select_menu(
+                  select_menu, text_input);
+          });</script>
+    
+
+    <span class=""><span id="yui_3_9_1_1_1369308969016_154">(<a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+index#" id="show-widget-ubuntuone-servers-target-product" class="js-action">Choose…</a>)</span></span>
+    <script>
+    LPJS.use('node', 'lp.app.picker', function(Y) {
+        var config = {"show_remove_button": false, "show_assign_me_button": false, "assign_me_text": "Pick me", "remove_person_text": "Remove person", "header": "Select a project", "selected_value_metadata": null, "vocabulary_name": "Product", "show_widget_id": "show-widget-ubuntuone-servers-target-product", "selected_value": "ubuntuone-servers", "input_element": "ubuntuone-servers.target.product", "remove_team_text": "Remove team", "extra_no_results_message": null, "vocabulary_filters": [], "show_create_team": false, "picker_type": "default", "step_title": "Search"};
+        var show_widget_id = 'show-widget-ubuntuone-servers-target-product';
+        Y.on('domready', function(e) {
+            Y.lp.app.picker.addPicker(config, show_widget_id);
+        });
+    });
+    </script>
+  
+
+
+
+    </td>
+  </tr>
+</tbody></table>
+
+          
+        </td>
+      </tr>
+    </tbody></table>
+    
+    <table>
+      <tbody><tr>
+        <td>
+          <label style="font-weight: bold" for="ubuntuone-servers.status">Status</label>
+        </td>
+        <td>
+          <label style="font-weight: bold" for="ubuntuone-servers.importance">Importance</label>
+        </td>
+        
+      </tr>
+      <tr>
+        <td><div>
+<div class="value">
+<select id="ubuntuone-servers.status" name="ubuntuone-servers.status" size="1">
+<option selected="selected" value="Triaged">Triaged</option>
+</select>
+</div>
+<input name="ubuntuone-servers.status-empty-marker" type="hidden" value="1">
+</div></td>
+        <td title="Changeable only by a project maintainer or bug supervisor">
+          <span class="sprite read-only"></span>
+          <span class="importanceWISHLIST">Wishlist</span>
+        </td>
+        
+      </tr>
+    </tbody></table>
+    <table>
+      <tbody><tr>
+        <td>
+          <label style="font-weight: bold" for="ubuntuone-servers.assignee">Assigned to</label>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" style="white-space: nowrap">
+
+  <table>
+    <tbody><tr>
+      <td style="padding: 0 2px 2px 0">
+        <input type="radio" checked="checked" name="ubuntuone-servers.assignee.option" value="ubuntuone-servers.assignee.assign_to_nobody" id="ubuntuone-servers.assignee.assign_to_nobody">
+      </td>
+      <td style="padding: 0">
+        <label style="font-weight: normal" for="ubuntuone-servers.assignee.assign_to_nobody">
+          Nobody
+        </label>
+      </td>
+    </tr>
+    <tr>
+      <td style="padding: 0 2px 2px 0">
+        <input type="radio" name="ubuntuone-servers.assignee.option" value="ubuntuone-servers.assignee.assign_to_me" id="ubuntuone-servers.assignee.assign_to_me">
+      </td>
+      <td style="padding: 0">
+        <label style="font-weight: normal" for="ubuntuone-servers.assignee.assign_to_me">
+          Me
+        </label>
+      </td>
+    </tr>
+    
+    
+  </tbody></table>
+
+
+</td>
+      </tr>
+    </tbody></table>
+    
+  </div>
+  <div class="field">
+    <div>
+      <label style="font-weight: bold" for="ubuntuone-servers.comment_on_change">Comment on this change (optional)</label>
+      <textarea cols="62" rows="4" id="ubuntuone-servers.comment_on_change" name="ubuntuone-servers.comment_on_change"></textarea>
+    </div>
+    <div>
+      <label style="font-weight: normal">
+        <input type="checkbox" name="subscribe" id="subscribe" value="Subscribe">
+        E-mail me about changes to this bug report
+      </label>
+    </div>
+  </div>
+  
+</form>
+</td>
+    </tr>
+  
+
+
+        
+      </tbody>
+
+    </table>
+
+
+
+<div class="actions">
+  
+    <span id="also-affects-product" class="">
+    <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+choose-affected-product" class="menu-link-addupstream sprite add">Also affects project</a>
+        <a href="https://bugs.launchpad.net/+help-bugs/also-affects-project-help.html" target="help" class="sprite maybe action-icon help">(?)</a>
+    </span>
+    <span id="also-affects-package" class="">
+    <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+distrotask" class="menu-link-adddistro sprite add">Also affects distribution</a>
+    </span>
+    <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+nominate" class="menu-link-nominate sprite milestone">Nominate for series</a>
+    
+  
+
+</div>
+
+
+
+
+      <div id="maincontentsub">
+        <div class="top-portlet" id="yui_3_9_1_1_1369308969016_343">
+
+      <div itemprop="mainContentOfPage" class="report" id="yui_3_9_1_1_1369308969016_342">
+        
+
+        <div id="yui_3_9_1_1_1369308969016_341">
+  <div id="edit-description" class="lazr-multiline-edit">
+  <div class="clearfix">
+    
+
+    <h3>Bug Description</h3>
+  </div>
+
+  <div class="yui3-editable_text-text" id="yui_3_9_1_1_1369308969016_340"><p>Pretty much anything I could use this for (particularly Zotero) requires WebDAV. This is a bit of a walled garden at the moment.</p></div>
+  </div>
+
+  
+</div>
+
+
+        <div style="margin:-10px 0 20px 5px" class="clearfix">
+          
+        </div>
+
+        <div id="bug-tags">
+          <span id="tags-heading">
+            Tags:
+          </span>
+          <span id="tag-list">
+            <a class="unofficial-tag" href="https://bugs.launchpad.net/ubuntuone-servers/+bugs?field.tag=story-0132">story-0132</a>
+          </span>
+          
+          <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+edit" title="Edit tags" id="tags-trigger" class="sprite edit action-icon">Edit</a>
+          <a href="https://bugs.launchpad.net/+help-bugs/tag-help.html" target="help" class="sprite maybe action-icon help">Tag help</a>
+        </div>
+
+        <script type="text/javascript">
+          LPJS.use('event', 'node', 'lp.bugs.tags_entry', function(Y) {
+              Y.on('domready',
+                   function(e) {
+                       Y.lp.bugs.tags_entry.setup_tag_entry(
+                           available_official_tags);
+                   },
+                   window);
+          });
+        </script>
+
+        <div class="clearfix"></div>
+      </div>
+
+      <div id="branches-and-cves">
+        <div id="bug-branches-container" style="float: left">
+          
+        </div><!-- bug-branch-container -->
+
+        
+
+        <div class="clearfix"></div>
+      </div> <!-- branches and CVEs -->
+
+      </div>
+
+      <div>
+      
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~jblount" class="sprite person">Joshua Blount (jblount)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2009-07-07T19:56:06.826422+00:00" title="2009-07-07 19:56:06 UTC">on 2009-07-07</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/1"> #1</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>WebDAV support for Mac and Windows platforms was in our initial talks about the service, although at this point I do not believe they are anywhere on our roadmap for future development.</p>
+<p>We would of course encourage porting of the client software to as many platforms as seemed useful, <a rel="nofollow" href="https://answers.edge.launchpad.net/ubuntuone-client/+question/70812">https:/<wbr>/answers.<wbr>edge.launchpad.<wbr>net/ubuntuone-<wbr>client/<wbr>+question/<wbr>70812</a></p></div>
+  
+  
+  
+
+
+  </div>
+
+  <div class="boardCommentFooter">
+    
+    
+      <table class="bug-activity">
+  
+    
+      <tbody><tr>
+        <td colspan="2">Changed in ubuntuone-client: </td>
+      </tr>
+    
+    <tr>
+      <td style="text-align: right;">
+        <b>importance</b>:
+      </td>
+      <td>
+        Undecided → Wishlist
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: right;">
+        <b>status</b>:
+      </td>
+      <td>
+        New → Triaged
+      </td>
+    </tr>
+  
+</tbody></table>
+    
+    
+  </div>
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~statik" class="sprite person">Elliot Murphy (statik)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2009-07-07T21:40:20.981467+00:00" title="2009-07-07 21:40:20 UTC">on 2009-07-07</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/2"> #2</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>We definitely plan to add a webdav interface, this has come up a lot in recent discussions.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+
+          
+              <div class="boardComment">
+  <div class="boardCommentDetails">
+    
+      <a href="https://launchpad.net/~mattgriffin" class="sprite person">Matt Griffin (mattgriffin)</a>
+    
+    <span title="2009-07-20 20:16:44 UTC">on 2009-07-20</span>
+  </div>
+  <div class="boardBugActivityBody">
+    <table class="bug-activity">
+  
+    
+      
+    
+    <tbody><tr>
+      <td style="text-align: right;">
+        <b>tags</b>:
+      </td>
+      <td>
+        added: story-0132
+      </td>
+    </tr>
+  
+</tbody></table>
+  </div>
+</div>
+          
+
+          
+
+        
+        
+          
+
+          
+              <div class="boardComment">
+  <div class="boardCommentDetails">
+    
+      <a href="https://launchpad.net/~dobey" class="sprite person">Rodney Dawes (dobey)</a>
+    
+    <span title="2009-07-30 20:50:58 UTC">on 2009-07-30</span>
+  </div>
+  <div class="boardBugActivityBody">
+    <table class="bug-activity">
+  
+    
+      
+    
+    <tbody><tr>
+      <td style="text-align: right;">
+        <b>affects</b>:
+      </td>
+      <td>
+        ubuntuone-client → ubunet
+      </td>
+    </tr>
+  
+</tbody></table>
+  </div>
+</div>
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~felipecorredor" class="sprite person">Fellipe (felipecorredor)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-02-24T12:11:52.716703+00:00" title="2010-02-24 12:11:52 UTC">on 2010-02-24</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/3"> #3</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Hello!</p>
+<p>This topic has been inactive for more than 6 months, and I found no notices about webdav support in ubuntu one. I just want to know if there are news about it. Is it really in plans?</p>
+<p>Thanks!</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~mattgriffin" class="sprite person">Matt Griffin (mattgriffin)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-02-24T14:57:27.440078+00:00" title="2010-02-24 14:57:27 UTC">on 2010-02-24</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/4"> #4</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>No updates here. Busy implementing the 10.04 features. This feature, along with all of the other wishlist features, is under consideration for a future release. Thanks!</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~lucio.torre" class="sprite person">Lucio Torre (lucio.torre)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-02-24T15:02:30.907616+00:00" title="2010-02-24 15:02:30 UTC">on 2010-02-24</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/5"> #5</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Yes and no. We want to do webdav support, but we dont have this work scheduled for the lucid time frame and we havent planned for lucid+1 yet.</p>
+<p>Dont hold your breath. :)</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~john-rudd" class="sprite person">johnkzin (john-rudd)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-10-07T21:55:59.456875+00:00" title="2010-10-07 21:55:59 UTC">on 2010-10-07</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/6"> #6</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>I can personally say that if support for webdav clients is added, I would quickly move from the basic/free account service level up to at least the 20GB (if not 40 or 60) account service level.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~info-borkentroll" class="sprite person">xfkubus (info-borkentroll)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-10-08T12:08:49.754131+00:00" title="2010-10-08 12:08:49 UTC">on 2010-10-08</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/7"> #7</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>The Idea of Ubuntu One is great. And when it support webdav i will subscribe for a pay account.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~nurkkala" class="sprite person">Janne (nurkkala)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-11-19T06:51:07.303575+00:00" title="2010-11-19 06:51:07 UTC">on 2010-11-19</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/8"> #8</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>As I just received my shiny Nokia N8, I'm also eager to get the WebDAV working with Ubuntu one. So when will we get it?<br>
+It would be nice to use One also with my phone :)</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~gramhorst" class="sprite person">willyram (gramhorst)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-11-23T15:47:42.973482+00:00" title="2010-11-23 15:47:42 UTC">on 2010-11-23</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/9"> #9</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Any news? It would be great to be able to access ubuntu one from windows as a remote folder, so I don't wast space with a local replica and I can have as much GB as I want on the cloud.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~mattgriffin" class="sprite person">Matt Griffin (mattgriffin)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2010-11-26T16:05:10.570163+00:00" title="2010-11-26 16:05:10 UTC">on 2010-11-26</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/10"> #10</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>@willyram: WebDAV support is not on our roadmap for the next 6 months (for 11.04). It's an interesting idea and something that we will explore a bit further to see if we should add it to our next phase of development. Thanks for the idea!</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~mestrelion" class="sprite person">MestreLion (mestrelion)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-01-06T05:41:53.737218+00:00" title="2011-01-06 05:41:53 UTC">on 2011-01-06</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/11"> #11</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Its a pity that such needed feature is being postponed for so long. Ubuntu is about freedom. WebDAV is an open standard. Adding support in UbuntuOne would both promote Ubuntu AND generate TONS of revenue to Cannonical. I cant understand why this is not top priority.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~blumej" class="sprite person">Jürgen Blumenschein (blumej)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-02-17T10:13:29.218316+00:00" title="2011-02-17 10:13:29 UTC">on 2011-02-17</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/12"> #12</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Ubuntu and UbuntuOne is a great idea. I'm in touch with Linux since kernel 0.98, use it on desktop since Suse 5.4 and use now Ubuntu an desktop and laptop since 9.04.<br>
+I spread the idea in my family and my office. But it would REALLY HELP, if UbuntuOne supports WebDAV!!!<br>
+Maybe Java is an island, but Linux/Ubuntu shouldn't be.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+
+          
+              <div class="boardComment">
+  <div class="boardCommentDetails">
+    
+      <a href="https://launchpad.net/~stonesgoods" class="sprite person">paul stone (stonesgoods)</a>
+    
+    <span title="2011-05-21 06:20:06 UTC">on 2011-05-21</span>
+  </div>
+  <div class="boardBugActivityBody">
+    <table class="bug-activity">
+  
+    
+      <tbody><tr>
+        <td colspan="2">Changed in ubuntuone-servers: </td>
+      </tr>
+    
+    <tr>
+      <td style="text-align: right;">
+        <b>status</b>:
+      </td>
+      <td>
+        Triaged → New
+      </td>
+    </tr>
+  
+</tbody></table>
+  </div>
+</div>
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~shanepatrickfagan" class="sprite person">Shane Fagan (shanepatrickfagan)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-05-21T10:33:14.257941+00:00" title="2011-05-21 10:33:14 UTC">on 2011-05-21</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/13"> #13</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>@paul please dont change the status of bugs without asking a developer if its ok.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  <div class="boardCommentFooter">
+    
+    
+      <table class="bug-activity">
+  
+    
+      <tbody><tr>
+        <td colspan="2">Changed in ubuntuone-servers: </td>
+      </tr>
+    
+    <tr>
+      <td style="text-align: right;">
+        <b>status</b>:
+      </td>
+      <td>
+        New → Triaged
+      </td>
+    </tr>
+  
+</tbody></table>
+    
+    
+  </div>
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~somethinginteres" class="sprite person">Sam L. (somethinginteres)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-08-01T12:45:59.492699+00:00" title="2011-08-01 12:45:59 UTC">on 2011-08-01</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/14"> #14</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>Just adding a use case here. I deal with a substantial amount of research documents which I store in my U1 account. A lot of the research apps for iPad sync with WebDav servers e.g. GoodReader, an iOS application that a good number of Universities recommend. Providing WebDav support in Ubuntu One would allow users such as myself to seamlessly work with their files.  Presently, I'm forced to upload to a different storage solution just for my work that facilitates this. Corporate clients would surely welcome the option. Thanks!</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~mkisovec" class="sprite person">eMKi (mkisovec)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-11-15T13:51:30.630018+00:00" title="2011-11-15 13:51:30 UTC">on 2011-11-15</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/15"> #15</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>I am another user of Ubuntu One who would greatly appreciate the possibility of WebDAV!</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~im0160-3" class="sprite person">0160 (im0160-3)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2011-11-29T15:17:37.869447+00:00" title="2011-11-29 15:17:37 UTC">on 2011-11-29</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/16"> #16</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>me too pleaseeeeeee webdav is getting more n more popular.</p>
+<p>0160</p>
+<p>security and application notes (an ongoing research)</p>
+<p>currently utilize webdav with truecrypt containers<br>
+&nbsp;encrypt your files you dont want seen by others. trust is in technology is setup for failure.</p>
+<p>webdav &gt; /optional mounting/ &gt; [encrypted sensitive file] [encrypted sensitive file2] ... = enter password for each file<br>
+or<br>
+webdav &gt; mounted &gt; truecrypt container &gt; mounted &gt; {sensitive files} = enter password once for entire container (but slower)<br>
+cons: truecrypt containers not accessible by iphone<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mounted webdavs can use more bandwidth for frequent syncing<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;mounted truecrypt containers on mounted webdav connections = unreliable if connectivity issues exist</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~acutbal" class="sprite person">Albert Cutrona (acutbal)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2012-05-31T17:20:31.897544+00:00" title="2012-05-31 17:20:31 UTC">on 2012-05-31</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/17"> #17</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>WebDAV it would be a great feature, just my two cents...</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~adlerhorst" class="sprite person">AdlerHorst (adlerhorst)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2012-06-15T15:32:20.102383+00:00" title="2012-06-15 15:32:20 UTC">on 2012-06-15</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/18"> #18</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>I wish it to. Is there a update about a Roadmap for this?</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~redsandro" class="sprite person">Redsandro (redsandro)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2012-11-23T16:01:19.300399+00:00" title="2012-11-23 16:01:19 UTC">on 2012-11-23</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/19"> #19</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>&nbsp;+1. I keep watching any of the major clouds for this.</p>
+<p>Dropbox: No.<br>
+Ubuntu One: No.<br>
+Google Drive: Only through a 3rd party service like <a rel="nofollow" href="http://dav-pocket.appspot.com/">http://<wbr>dav-pocket.<wbr>appspot.<wbr>com/</a> (unsafe)<br>
+Skydrive: Only when authenticated through Windows .NET.</p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        
+          
+            <div xmlns="http://www.w3.org/1999/xhtml" itemscope="" itemtype="http://schema.org/UserComments" class="boardComment 
+                 ">
+
+  <div class="boardCommentDetails">
+    <table>
+      <tbody>
+        <tr>
+          <td>
+            <a href="https://launchpad.net/~sil" class="sprite person">Stuart Langridge (sil)</a>
+            wrote
+            <time itemprop="commentTime" datetime="2012-11-23T16:43:52.566359+00:00" title="2012-11-23 16:43:52 UTC">on 2012-11-23</time>:
+              
+          </td>
+          
+
+          <td class="bug-comment-index">
+          <a itemprop="url" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/comments/20"> #20</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="boardCommentBody">
+    
+
+    
+
+    
+
+  
+  <div class="comment-text" itemprop="commentText"><p>While Ubuntu One doesn't offer a webdav service, you may find that u1ftp, which is a local proxy allowing FTP access to Ubuntu One, can fulfil some needs in this area. <a rel="nofollow" href="http://kryogenix.org/days/2012/09/11/accessing-ubuntu-one-file-storage-via-ftp-from-any-os">http://<wbr>kryogenix.<wbr>org/days/<wbr>2012/09/<wbr>11/accessing-<wbr>ubuntu-<wbr>one-file-<wbr>storage-<wbr>via-ftp-<wbr>from-any-<wbr>os</a></p></div>
+  
+  
+  
+
+
+  </div>
+
+  
+</div>
+
+          
+
+          
+
+          
+
+        
+        <div style="float: right;">
+          <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+activity" class="menu-link-activitylog">See full activity log</a>
+        </div>
+        <div class="clearfix"></div>
+
+        
+          
+
+          
+            <div align="center" id="add-comment-login-first">
+              To post a comment you must <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+login?comments=all">log in</a>.
+            </div>
+          
+        
+        
+      
+
+      </div><!-- class="top-portlet" -->
+      </div><!--- id="maincontentsub"-->
+      <div>
+        <div id="duplicate-form-container"></div>
+        <div id="privacy-form-container"></div>
+      </div>
+    </div>
+            
+            
+          </div><!-- yui-b -->
+        </div><!-- yui-main -->
+
+        
+          <div id="side-portlets" class="yui-b side">
+            
+      <div id="involvement" class="portlet">
+        <ul class="involvement">
+          <li class="single">
+            <a class="sprite bugs" href="https://bugs.launchpad.net/ubuntuone-servers/+filebug">
+              Report a bug
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div id="privacy" class="first portlet public">
+  <div id="privacy-text">
+     <span id="information-type-summary" class="sprite public">This report contains
+         <strong id="information-type">Public</strong>
+         information
+     </span>&nbsp;<a class="sprite edit action-icon" id="privacy-link" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+secrecy">Edit</a>
+
+     <div id="information-type-description" style="padding-top: 5px">Everyone can see this information.
+</div>
+  </div>
+</div>
+
+      <div id="portlet-actions" class="portlet vertical">
+  <ul id="duplicate-actions">
+    <li class="sprite bug-dupe">
+    <span id="mark-duplicate-text">
+    <a class="menu-link-mark-dupe" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+duplicate">Mark as duplicate</a>
+    </span>
+    </li>
+    
+    <li><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+create-question" class="menu-link-createquestion sprite add">Convert to a question</a></li>
+    
+    <li><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+addbranch" class="menu-link-addbranch sprite add">Link a related branch</a></li>
+    <li><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+linkcve" class="menu-link-linktocve sprite add">Link to <abbr title="Common Vulnerabilities and Exposures Index">CVE</abbr></a></li>
+    
+  </ul>
+</div>
+
+      <div class="portlet" id="portlet-duplicates">
+  <h2>Duplicates of this bug</h2>
+  <ul>
+    <li>
+      <a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/399916" class="sprite bug" title="Add WebDAV access to storage"> Bug #399916</a>
+    </li>
+  </ul>
+</div>
+
+      <div class="portlet vertical" id="portlet-subscription">
+  <div class="section">
+    <div id="current_user_subscription" class="False">
+      
+        <span>You are</span>
+        
+        <a class="menu-link-subscription sprite modify edit" href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+subscribe">
+           
+           
+           
+           not directly subscribed to this bug's notifications.
+        </a>
+      
+      
+    </div>
+    <div id="sub-unsub-spinner">Subscribing...</div>
+    <ul>
+      
+      <li><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+subscriptions" class="menu-link-editsubscriptions sprite modify edit" title="View and change your subscriptions to this bug">Edit bug mail</a></li>
+    </ul>
+  </div>
+  <script type="text/javascript">
+    LPJS.use('io-base', 'node',
+            'lp.bugs.bugtask_index.portlets.subscription', function(Y) {
+        Y.on('domready', function() {
+            Y.lp.bugs.bugtask_index.portlets.subscription.initialize();
+        });
+    });
+  </script>
+</div>
+
+      <div class="portlet vertical" id="portlet-subscribers">
+  <h2>Other bug subscribers</h2>
+  <div>
+    <div><a href="https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+addsubscriber" class="menu-link-addsubscriber sprite add" title="Launchpad will email that person whenever this bugs changes">Subscribe someone else</a></div>
+  </div>
+  <div id="other-bug-subscribers"><div class="subscribers-section subscribers-section-discussion" id="yui_3_9_1_1_1369308969016_167"><h3>Notified of all changes</h3><ul class="subscribers-list"><li class="subscriber" id="subscriber-adlerhorst"><a href="https://launchpad.net/~adlerhorst" title="Self-subscribed"><span class="sprite person">AdlerHorst</span></a></li><li class="subscriber" id="subscriber-sunrider"><a href="https://launchpad.net/~sunrider" title="Self-subscribed"><span class="sprite person">Anakin Starkiller</span></a></li><li class="subscriber" id="subscriber-andy-rogers"><a href="https://launchpad.net/~andy-rogers" title="Self-subscribed"><span class="sprite person">Andy Rogers</span></a></li><li class="subscriber" id="subscriber-susurra"><a href="https://launchpad.net/~susurra" title="Self-subscribed"><span class="sprite person">Antonio J. Delgado</span></a></li><li class="subscriber" id="subscriber-bluecase"><a href="https://launchpad.net/~bluecase" title="Self-subscribed"><span class="sprite person">BlueCase</span></a></li><li class="subscriber" id="subscriber-secretlondon"><a href="https://launchpad.net/~secretlondon" title="Self-subscribed"><span class="sprite person">Caroline Ford</span></a></li><li class="subscriber" id="subscriber-quincunx"><a href="https://launchpad.net/~quincunx" title="Self-subscribed"><span class="sprite person">Christian Schürer...</span></a></li><li class="subscriber" id="subscriber-dandoug"><a href="https://launchpad.net/~dandoug" title="Self-subscribed"><span class="sprite person">Dan Douglas</span></a></li><li class="subscriber" id="subscriber-junk-launchpad-risacher"><a href="https://launchpad.net/~junk-launchpad-risacher" title="Self-subscribed"><span class="sprite person">Daniel Risacher</span></a></li><li class="subscriber" id="subscriber-lkishalmi"><a href="https://launchpad.net/~lkishalmi" title="Self-subscribed"><span class="sprite person">Doki</span></a></li><li class="subscriber" id="subscriber-goncalop"><a href="https://launchpad.net/~goncalop" title="Self-subscribed"><span class="sprite person">GoncaloP</span></a></li><li class="subscriber" id="subscriber-brandk"><a href="https://launchpad.net/~brandk" title="Self-subscribed"><span class="sprite person">Karl Brand</span></a></li><li class="subscriber" id="subscriber-earth2mark-eeepc"><a href="https://launchpad.net/~earth2mark-eeepc" title="Self-subscribed"><span class="sprite person">Mark Schroeder</span></a></li><li class="subscriber" id="subscriber-m-meng"><a href="https://launchpad.net/~m-meng" title="Self-subscribed"><span class="sprite person">Martin Meng</span></a></li><li class="subscriber" id="subscriber-hewbass"><a href="https://launchpad.net/~hewbass" title="Self-subscribed"><span class="sprite person">Matthew Bassett</span></a></li><li class="subscriber" id="subscriber-ubuntuone"><a href="https://launchpad.net/~ubuntuone" title="Subscribed by Rodney Dawes (dobey)"><span class="sprite team">Ubuntu One</span></a></li><li class="subscriber" id="subscriber-mercuryv"><a href="https://launchpad.net/~mercuryv" title="Self-subscribed"><span class="sprite person">Victor Merkushov</span></a></li><li class="subscriber" id="subscriber-init-sub"><a href="https://launchpad.net/~init-sub" title="Self-subscribed"><span class="sprite person">Vladimir Znak</span></a></li><li class="subscriber" id="subscriber-buebo"><a href="https://launchpad.net/~buebo" title="Self-subscribed"><span class="sprite person">buebo</span></a></li><li class="subscriber" id="subscriber-mkisovec"><a href="https://launchpad.net/~mkisovec" title="Self-subscribed"><span class="sprite person">eMKi</span></a></li><li class="subscriber" id="subscriber-ingolf-schaefer"><a href="https://launchpad.net/~ingolf-schaefer" title="Self-subscribed"><span class="sprite person">ingolf.schaefer</span></a></li><li class="subscriber" id="subscriber-bluenote"><a href="https://launchpad.net/~bluenote" title="Self-subscribed"><span class="sprite person">jdigerness</span></a></li><li class="subscriber" id="subscriber-macwindux"><a href="https://launchpad.net/~macwindux" title="Self-subscribed"><span class="sprite person">macwindux</span></a></li><li class="subscriber" id="subscriber-asmund"><a href="https://launchpad.net/~asmund" title="Self-subscribed"><span class="sprite person">Åsmund Hjulstad</span></a></li><li class="subscriber" id="subscriber-stian-oby"><a href="https://launchpad.net/~stian-oby" title="Self-subscribed"><span class="sprite person">Øby</span></a></li></ul></div><div class="subscribers-section subscribers-section-lifecycle" id="yui_3_9_1_1_1369308969016_216"><h3>Notified when the bug is closed or reopened</h3><ul class="subscribers-list"><li class="subscriber" id="subscriber-samiaira-gmail"><a href="https://launchpad.net/~samiaira-gmail" title="Self-subscribed"><span class="sprite person">Sami00Sami</span></a></li></ul></div><div class="subscribers-section subscribers-section-maybe" id="yui_3_9_1_1_1369308969016_253"><h3>May be notified</h3><ul class="subscribers-list"><li class="subscriber" id="subscriber-_14011953-rambler"><a href="https://launchpad.net/~14011953-rambler"><span class="sprite person">14011953</span></a></li><li class="subscriber" id="subscriber-ajmitch"><a href="https://launchpad.net/~ajmitch"><span class="sprite person">Andrew Mitchell</span></a></li><li class="subscriber" id="subscriber-chaselivingston"><a href="https://launchpad.net/~chaselivingston"><span class="sprite person">Chase Livingston</span></a></li><li class="subscriber" id="subscriber-research"><a href="https://launchpad.net/~research"><span class="sprite person">Daniel Moore</span></a></li><li class="subscriber" id="subscriber-davmor2"><a href="https://launchpad.net/~davmor2"><span class="sprite person">Dave Morley</span></a></li><li class="subscriber" id="subscriber-neophyte-destroyteam"><a href="https://launchpad.net/~neophyte-destroyteam"><span class="sprite person">DjNeophyte</span></a></li><li class="subscriber" id="subscriber-dradak1"><a href="https://launchpad.net/~dradak1"><span class="sprite person">Dragan Radakovic</span></a></li><li class="subscriber" id="subscriber-tpeng20"><a href="https://launchpad.net/~tpeng20"><span class="sprite person">Goku1</span></a></li><li class="subscriber" id="subscriber-hardik-dalwadi"><a href="https://launchpad.net/~hardik-dalwadi"><span class="sprite person">Hardik Dalwadi</span></a></li><li class="subscriber" id="subscriber-jamesh"><a href="https://launchpad.net/~jamesh"><span class="sprite person">James Henstridge</span></a></li><li class="subscriber" id="subscriber-ubuntu-jamieewers"><a href="https://launchpad.net/~ubuntu-jamieewers"><span class="sprite person">Jamiesdomain</span></a></li><li class="subscriber" id="subscriber-jaboing"><a href="https://launchpad.net/~jaboing"><span class="sprite person">Julien Funk</span></a></li><li class="subscriber" id="subscriber-elopio"><a href="https://launchpad.net/~elopio"><span class="sprite person">Leo Arias</span></a></li><li class="subscriber" id="subscriber-lisette-slegers"><a href="https://launchpad.net/~lisette-slegers"><span class="sprite person">Lisette Slegers</span></a></li><li class="subscriber" id="subscriber-patrick-archibald"><a href="https://launchpad.net/~patrick-archibald"><span class="sprite person">Patrick L Archibald</span></a></li><li class="subscriber" id="subscriber-darkimaster1"><a href="https://launchpad.net/~darkimaster1"><span class="sprite person">Philipp Bosbach</span></a></li><li class="subscriber" id="subscriber-romi66"><a href="https://launchpad.net/~romi66"><span class="sprite person">Romoda Károly</span></a></li><li class="subscriber" id="subscriber-ubuntuone-hackers"><a href="https://launchpad.net/~ubuntuone-hackers"><span class="sprite team">Ubuntu One hackers</span></a></li><li class="subscriber" id="subscriber-v1ll3-deactivatedaccount"><a href="https://launchpad.net/~v1ll3-deactivatedaccount"><span class="sprite person">Ville Tiensuu</span></a></li><li class="subscriber" id="subscriber-terkelsorensen"><a href="https://launchpad.net/~terkelsorensen"><span class="sprite person">Voidcode</span></a></li><li class="subscriber" id="subscriber-_851682555-qq"><a href="https://launchpad.net/~851682555-qq"><span class="sprite person">Zhaosen</span></a></li><li class="subscriber" id="subscriber-wmilks"><a href="https://launchpad.net/~wmilks"><span class="sprite person">billmilks</span></a></li><li class="subscriber" id="subscriber-cliftonlai"><a href="https://launchpad.net/~cliftonlai"><span class="sprite person">cliftonlai</span></a></li><li class="subscriber" id="subscriber-linux-davidryman"><a href="https://launchpad.net/~linux-davidryman"><span class="sprite person">davidryman</span></a></li><li class="subscriber" id="subscriber-erz0014"><a href="https://launchpad.net/~erz0014"><span class="sprite person">erz1</span></a></li><li class="subscriber" id="subscriber-unaiup"><a href="https://launchpad.net/~unaiup"><span class="sprite person">sasukeuni</span></a></li><li class="subscriber" id="subscriber-somnob"><a href="https://launchpad.net/~somnob"><span class="sprite person">somnob</span></a></li><li class="subscriber" id="subscriber-zh720530"><a href="https://launchpad.net/~zh720530"><span class="sprite person">zh720530</span></a></li></ul></div></div>
+</div>
+
+      
+
+      <div class="portlet vertical" id="portlet-blueprints">
+  <h2>Related blueprints</h2>
+  <ul>
+  </ul>
+</div>
+
+      
+  
+  
+
+
+      
+
+    
+          </div><!-- yui-b side -->
+        
+      </div><!-- yui-t4 -->
+
+      
+  <div id="footer" class="footer">
+    <div class="lp-arcana">
+        <div class="lp-branding">
+          <a href="https://launchpad.net/"><img src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/launchpad-logo-and-name-hierarchy.png" alt="Launchpad"></a>
+          &nbsp;•&nbsp;
+          <a href="https://launchpad.net/+tour">Take the tour</a>
+          &nbsp;•&nbsp;
+          <a href="https://help.launchpad.net/">Read the guide</a>
+          &nbsp;
+          <form id="globalsearch" method="get" accept-charset="UTF-8" action="https://launchpad.net/+search">
+            <input type="search" id="search-text" name="field.text">
+            <input type="image" src="./Bug #396725 “Needs WebDAV support”   Bugs   Ubuntu One Serverzotero_files/search" style="vertical-align:5%" alt="Search Launchpad">
+          </form>
+        </div>
+        
+  
+
+    </div>
+
+    <div class="colophon">
+      © 2004-2013
+      <a href="http://canonical.com/">Canonical&nbsp;Ltd.</a>
+      &nbsp;•&nbsp;
+      <a href="https://launchpad.net/legal">Terms of use</a>
+      &nbsp;•&nbsp;
+      <a href="https://bugs.launchpad.net/feedback">Contact Launchpad Support</a>
+      
+      &nbsp;•&nbsp;
+      <a href="http://blog.launchpad.net/">Blog</a>
+      
+	&nbsp;•&nbsp;
+	<a href="http://www.canonical.com/about-canonical/careers">Careers</a>
+      
+      &nbsp;•&nbsp;
+      <a href="http://identi.ca/launchpadstatus">System status</a>
+      <span id="lp-version">
+      &nbsp;•&nbsp;
+        r16640
+        
+        
+        (<a href="https://dev.launchpad.net/">Get the code!</a>)
+      </span>
+    </div>
+  </div>
+
+    </div><!-- yui-d0-->
+
+    <div id="help-pane" class="invisible">
+      <div id="help-body">
+        
+        <iframe id="help-pane-content" class="invisible" src="javascript:void(0);"></iframe>
+      </div>
+      <div id="help-footer">
+        <span id="help-close"></span>
+      </div>
+    </div>
+
+    
+  
+  
+  <script id="json-cache-script">LP.cache = {"bug_is_private": false, "related_features": {}, "bugtask_data": {"465355": {"milestone_value": null, "form_row_id": "task465355", "target_is_product": true, "importance_value": "Wishlist", "prefix": "ubuntuone-servers", "hide_assignee_team_selection": true, "delete_link": "https://bugs.launchpad.net/ubuntuone-servers/+bug/396725/+delete", "id": 465355, "assignee_is_team": null, "milestone_widget_items": "[]", "assignee_vocabulary": "AllUserTeamsParticipation", "bug_title": "Needs WebDAV support", "user_can_delete": false, "assignee_value": null, "user_can_edit_importance": false, "assignee_vocabulary_filters": [], "importance_widget_items": "[]", "status_value": "Triaged", "user_can_unassign": false, "user_can_edit_milestone": false, "user_can_edit_assignee": false, "user_can_edit_status": true, "status_widget_items": "[]", "bugtask_path": "/ubuntuone-servers/+bug/396725", "row_id": "tasksummary465355", "targetname": "Ubuntu One Servers"}}, "total_comments_and_activity": 43, "context": {"date_closed": null, "date_assigned": null, "title": "Bug #396725 in Ubuntu One Servers: \"Needs WebDAV support\"", "bug_link": "https://bugs.launchpad.net/api/devel/bugs/396725", "bug_watch_link": null, "milestone_link": null, "http_etag": "\"62de96d6ea14f637b2092a27df73a1eee28bf0d6-4de213fc19c09f19fbc19f489b64c9e9cef4534f\"", "date_left_closed": null, "date_fix_committed": null, "date_fix_released": null, "date_in_progress": null, "resource_type_link": "https://bugs.launchpad.net/api/devel/#bug_task", "status": "Triaged", "bug_target_name": "ubuntuone-servers", "importance": "Wishlist", "assignee_link": null, "date_triaged": "2011-05-21T10:33:23.214731+00:00", "self_link": "https://bugs.launchpad.net/api/devel/ubuntuone-servers/+bug/396725", "target_link": "https://bugs.launchpad.net/api/devel/ubuntuone-servers", "bug_target_display_name": "Ubuntu One Servers", "related_tasks_collection_link": "https://bugs.launchpad.net/api/devel/ubuntuone-servers/+bug/396725/related_tasks", "date_confirmed": "2011-05-21T10:33:23.214731+00:00", "date_left_new": "2009-07-07T19:56:07.397927+00:00", "web_link": "https://bugs.launchpad.net/ubuntuone-servers/+bug/396725", "owner_link": "https://bugs.launchpad.net/api/devel/~secretlondon", "date_created": "2009-07-07T19:43:30.704307+00:00", "date_incomplete": null, "is_complete": false}, "information_type_data": {"PRIVATESECURITY": {"name": "Private Security", "value": "PRIVATESECURITY", "description_css_class": "choice-description", "order": 2, "is_private": true, "description": "Only the security group can see this information.\n "}, "USERDATA": {"name": "Private", "value": "USERDATA", "description_css_class": "choice-description", "order": 3, "is_private": true, "description": "Only shared with users permitted to see private user information.\n"}, "PUBLICSECURITY": {"name": "Public Security", "value": "PUBLICSECURITY", "description_css_class": "choice-description", "order": 1, "is_private": false, "description": "Everyone can see this security related information.\n"}, "PROPRIETARY": {"name": "Proprietary", "value": "PROPRIETARY", "description_css_class": "choice-description", "order": 4, "is_private": true, "description": "Only shared with users permitted to see proprietary information.\n"}, "PUBLIC": {"name": "Public", "value": "PUBLIC", "description_css_class": "choice-description", "order": 0, "is_private": false, "description": "Everyone can see this information.\n"}}, "subscribers_portlet_url_data": {"self_link": "https://bugs.launchpad.net/api/devel/bugs/396725", "web_link": "https://bugs.launchpad.net/bugs/396725"}, "initial_comment_batch_offset": 41, "bug": {"users_unaffected_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/users_unaffected", "latest_patch_uploaded": null, "users_affected_count_with_dupes": 47, "security_related": false, "private": false, "bug_watches_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/bug_watches", "date_made_private": null, "linked_branches_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/linked_branches", "subscriptions_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/subscriptions", "number_of_duplicates": 1, "id": 396725, "users_unaffected_count": 0, "title": "Needs WebDAV support", "other_users_affected_count_with_dupes": 47, "name": null, "http_etag": "\"8c942f311574d3fd5e609ad79028ab254b5ab5c1-73436b192e4b026a63111b878da70cc3b9cfaf68\"", "messages_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/messages", "self_link": "https://bugs.launchpad.net/api/devel/bugs/396725", "information_type": "Public", "who_made_private_link": null, "attachments_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/attachments", "resource_type_link": "https://bugs.launchpad.net/api/devel/#bug", "activity_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/activity", "date_last_updated": "2012-11-23T16:43:53.278217+00:00", "description": "Pretty much anything I could use this for (particularly Zotero) requires WebDAV. This is a bit of a walled garden at the moment.", "duplicates_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/duplicates", "tags": ["story-0132"], "message_count": 21, "heat": 244, "bug_tasks_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/bug_tasks", "duplicate_of_link": null, "users_affected_with_dupes_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/users_affected_with_dupes", "cves_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/cves", "web_link": "https://bugs.launchpad.net/bugs/396725", "users_affected_count": 46, "owner_link": "https://bugs.launchpad.net/api/devel/~secretlondon", "date_created": "2009-07-07T19:43:30.704307+00:00", "date_last_message": "2012-11-23T16:43:52.566359+00:00", "users_affected_collection_link": "https://bugs.launchpad.net/api/devel/bugs/396725/users_affected"}, "first visible_recent_comment": -20};</script>
+
+    
+  
+
+    
+  
+
+
+  <!--
+    Facet name: bugs
+    Page type: main_side
+    Has global search: True
+    Has application tabs: True
+    Has side portlets: True
+
+    At least 53 queries/external actions issued in 0.69 seconds
+
+    Features: {'baselayout.careers_link.disabled': None, 'bugs.affected_count_includes_dupes.disabled': None, 'hard_timeout': u'9000', 'profiling.enabled': None, 'js.yui_version': u'yui-3.9.1', 'visible_render_time': None}
+
+    r16640
+
+    -->
+
+
+
+</body></html>
