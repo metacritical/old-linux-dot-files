@@ -43,7 +43,7 @@
 			let A=1
 			let A=1+2
 			let "A = 1 + 2" -> For spaces in Assignments.
-
+			 
 		2) Expressions
 			expr 1 + 3
 			=> 4
@@ -196,9 +196,24 @@
           seq -s+ 1 10 | bc =>  where we changed the seperator default from '\n' newline to '+'
 	      #+END_SRC
 	
+* Bash External References
+  1. http://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+  2. http://aplawrence.com/Unix/getopts.html
+  3. http://stackoverflow.com/questions/11279423/bash-getopts-with-multiple-and-mandatory-options
+	4. http://wiki.bash-hackers.org/howto/getopts_tutorial
+	5. http://stackoverflow.com/questions/1965080/how-to-use-tags-in-git?lq=1
+	6. http://www.ibm.com/developerworks/library/l-bash-test/
+	7. http://www.linuxjournal.com/content/bash-declare-statement
+	8. http://floppix.com/scripts1.html
+	9. http://bash.cyberciti.biz/guide/Declare_command
+	10. http://linux.about.com/library/cmd/blcmdl1_builtin.htm
+	11. http://www.thegeekstuff.com/2010/06/bash-array-tutorial/
+	12. http://stackoverflow.com/questions/2764051/joining-multiple-lines-into-one-with-bash
+	13. http://stackoverflow.com/questions/7442417/how-to-sort-an-array-in-bash
+	14. http://stackoverflow.com/questions/6242311/quickly-get-index-of-array-element-in-ruby
 
-
-	
+* Stuff
+	1. ruby quiz
 * Nice Quotes
 	#+TITLE: Thought provoking quotes:
 	#+BEGIN_QUOTE:
